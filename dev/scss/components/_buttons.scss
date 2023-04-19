@@ -1,0 +1,26 @@
+@use '../abstracts/vars';
+@use '../abstracts/mixins';
+
+
+.btn-curved{
+    @include mixins.btn-curved(vars.$clr-yellow, vars.$clr-black);
+}
+
+.btn-curved:hover{
+    background: transparent;
+}
+
+.icon-link{
+    color: vars.$clr-black;
+}
+
+.icon-link:hover{
+    color: vars.$clr-yellow;
+}
+
+.arrow-link{
+    transform: scale(1.7);    
+    color: vars.$clr-black;
+    text-decoration: none;
+}
+

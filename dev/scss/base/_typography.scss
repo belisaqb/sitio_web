@@ -1,0 +1,22 @@
+@use '../abstracts/vars';
+
+.text-light {
+    color: var(vars.$clr-white);
+}
+
+.text-dark {
+    color: var(vars.$clr-black);
+}
+
+.text-yellow {
+    color: var(vars.$clr-yellow);
+}
+
+.text-grey {
+    color:var(vars.$clr-grey-3);
+}
+
+.content{
+    font-family: var(vars.$ff-secondary);
+    color: var(vars.$clr-grey-3);
+}

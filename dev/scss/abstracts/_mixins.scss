@@ -1,0 +1,16 @@
+//Components
+//buttons
+
+@mixin btn-curved($bg, $text-color){
+    display: inline-flex;
+    background-color: $bg;
+    border: solid;
+    border-radius: 0.5rem;
+    border-color: $bg;
+    color: $text-color;
+    text-decoration: none;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}

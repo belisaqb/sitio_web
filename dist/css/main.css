@@ -1,0 +1,55 @@
+.text-light {
+  color: var(hsl(0deg, 0%, 100%));
+}
+
+.text-dark {
+  color: var(hsl(0deg, 0%, 0%));
+}
+
+.text-yellow {
+  color: var(hsl(34deg, 84%, 50%));
+}
+
+.text-grey {
+  color: var(hsl(0deg, 0%, 32%));
+}
+
+.content {
+  font-family: var("Noto Serif");
+  color: var(hsl(0deg, 0%, 32%));
+}
+
+.btn-curved {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: hsl(34deg, 84%, 50%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-curved:hover {
+  background: transparent;
+}
+
+.icon-link {
+  color: hsl(0deg, 0%, 0%);
+}
+
+.icon-link:hover {
+  color: hsl(34deg, 84%, 50%);
+}
+
+.arrow-link {
+  -webkit-transform: scale(1.7);
+          transform: scale(1.7);
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+}
