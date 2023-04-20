@@ -1,9 +1,11 @@
 @use './abstracts/vars';
 @use './abstracts/mixins';
 
+@use './base/base';
 @use './base/typography';
 
 @use './components/buttons';
+@use './components/cards';
 
 
 

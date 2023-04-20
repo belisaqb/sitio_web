@@ -1,0 +1,6 @@
+@use '../abstracts/vars';
+@use '../abstracts/mixins';
+
+.main-card{
+    @include mixins.card(vars.$clr-white, vars.$clr-grey-4, vars.$clr-black);
+}

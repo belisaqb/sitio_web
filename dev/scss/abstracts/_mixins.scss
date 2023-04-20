@@ -14,3 +14,14 @@
     padding-left: 1.25rem;
     padding-right: 1.25rem;
 }
+
+//cards
+@mixin card($bg, $border-color, $text-color){
+    background: $bg;    
+    color: $text-color;
+    border: solid;
+    border-radius: .5rem;
+    border-color: $border-color;
+    max-width: 18rem;
+    word-wrap: break-word;
+}

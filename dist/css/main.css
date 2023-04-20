@@ -1,3 +1,8 @@
+body {
+  font-family: "Lato";
+  color: hsl(0deg, 0%, 0%);
+}
+
 .text-light {
   color: var(hsl(0deg, 0%, 100%));
 }
@@ -48,8 +53,18 @@
 }
 
 .arrow-link {
-  -webkit-transform: scale(1.7);
-          transform: scale(1.7);
+  -webkit-transform: scale(1.9);
+          transform: scale(1.9);
   color: hsl(0deg, 0%, 0%);
   text-decoration: none;
+}
+
+.main-card {
+  background: hsl(0deg, 0%, 100%);
+  color: hsl(0deg, 0%, 0%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(0deg, 0%, 80%);
+  max-width: 18rem;
+  word-wrap: break-word;
 }
