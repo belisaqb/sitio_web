@@ -25,3 +25,22 @@
     max-width: 18rem;
     word-wrap: break-word;
 }
+
+//Layout
+@mixin container-bg($bg, $text-color){
+    background: $bg;    
+    color: $text-color;
+}
+
+@mixin text-link($text-color){
+    display: block;
+    text-decoration: none;
+    color: $text-color;
+    transition: .5s;
+}
+
+@mixin text-link-hover($text-color){
+    color: $text-color;
+    transform: translate(.5rem);
+    font-weight: bold;
+}

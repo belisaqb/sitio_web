@@ -68,3 +68,23 @@ body {
   max-width: 18rem;
   word-wrap: break-word;
 }
+
+.footer-bg {
+  background: hsl(0deg, 0%, 0%);
+  color: hsl(0deg, 0%, 100%);
+}
+
+.footer-link {
+  display: block;
+  text-decoration: none;
+  color: hsl(0deg, 0%, 60%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.footer-link:hover {
+  color: hsl(0deg, 0%, 100%);
+  -webkit-transform: translate(0.5rem);
+          transform: translate(0.5rem);
+  font-weight: bold;
+}

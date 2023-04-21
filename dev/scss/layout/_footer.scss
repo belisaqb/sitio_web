@@ -1,0 +1,14 @@
+@use '../abstracts/vars';
+@use '../abstracts/mixins';
+
+.footer-bg{
+    @include mixins.container-bg(vars.$clr-black, vars.$clr-white);
+}
+
+.footer-link{
+    @include mixins.text-link(vars.$clr-grey-2);
+}
+
+.footer-link:hover{
+    @include mixins.text-link-hover(vars.$clr-white);
+}
