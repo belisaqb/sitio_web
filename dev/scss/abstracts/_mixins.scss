@@ -1,12 +1,20 @@
+//Base
+//typography
+// @mixin no-decoration($text-color){
+//     text-decoration: none;
+//     color: $text-color;
+// }
+
+
 //Components
 //buttons
 
-@mixin btn-curved($bg, $text-color){
+@mixin btn-curved($bg, $text-color, $border-color){
     display: inline-flex;
     background-color: $bg;
     border: solid;
     border-radius: 0.5rem;
-    border-color: $bg;
+    border-color: $border-color;
     color: $text-color;
     text-decoration: none;
     padding-top: .5rem;
@@ -44,3 +52,4 @@
     transform: translate(.5rem);
     font-weight: bold;
 }
+

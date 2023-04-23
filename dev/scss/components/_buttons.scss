@@ -2,25 +2,65 @@
 @use '../abstracts/mixins';
 
 
-.btn-curved{
-    @include mixins.btn-curved(vars.$clr-yellow, vars.$clr-black);
+.btn-dark {
+    @include mixins.btn-curved(vars.$clr-yellow, vars.$clr-black, vars.$clr-yellow);
 }
 
-.btn-curved:hover{
-    background: transparent;
+.btn-dark:hover {
+    @include mixins.btn-curved(transparent, vars.$clr-black, vars.$clr-yellow);
 }
 
-.icon-link{
+.btn-light {
+    @include mixins.btn-curved(vars.$clr-yellow, vars.$clr-white, vars.$clr-yellow);
+}
+
+.btn-light:hover {
+    @include mixins.btn-curved(transparent, vars.$clr-white, vars.$clr-yellow);
+}
+
+.btn-secondary-dark{
+    @include mixins.btn-curved(transparent, vars.$clr-black, vars.$clr-yellow);
+}
+
+.btn-secondary-dark:hover{
+    @include mixins.btn-curved(vars.$clr-yellow, vars.$clr-black, vars.$clr-yellow);
+}
+
+.btn-secondary-light{
+    @include mixins.btn-curved(transparent, vars.$clr-white, vars.$clr-yellow);
+}
+
+.btn-secondary-light:hover{
+    @include mixins.btn-curved(vars.$clr-yellow, vars.$clr-white, vars.$clr-yellow);
+}
+
+
+
+
+.icon-link {
     color: vars.$clr-black;
 }
 
-.icon-link:hover{
+.icon-link:hover {
     color: vars.$clr-yellow;
 }
 
-.arrow-link{
-    transform: scale(1.9);    
+.arrow-link {
+    transform: scale(1.9);
     color: vars.$clr-black;
     text-decoration: none;
 }
 
+.accordion-bg {
+    @include mixins.container-bg(vars.$clr-yellow, vars.$clr-black);
+}
+
+.accordion-bg:focus {
+    @include mixins.container-bg(vars.$clr-yellow, vars.$clr-black);
+    border-color: none;
+    box-shadow: none;
+}
+
+.accordion-bg:not(.collapsed) {
+    @include mixins.container-bg(vars.$clr-yellow, vars.$clr-black);
+}

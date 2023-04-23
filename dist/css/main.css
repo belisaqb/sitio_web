@@ -24,7 +24,22 @@ body {
   color: var(hsl(0deg, 0%, 32%));
 }
 
-.btn-curved {
+.text-link {
+  display: block;
+  text-decoration: none;
+  color: hsl(0deg, 0%, 0%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.text-link:hover {
+  color: hsl(0deg, 0%, 0%);
+  -webkit-transform: translate(0.5rem);
+          transform: translate(0.5rem);
+  font-weight: bold;
+}
+
+.btn-dark {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -40,8 +55,116 @@ body {
   padding-right: 1.25rem;
 }
 
-.btn-curved:hover {
-  background: transparent;
+.btn-dark:hover {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: transparent;
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-light {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: hsl(34deg, 84%, 50%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 100%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-light:hover {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: transparent;
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 100%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-secondary-dark {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: transparent;
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-secondary-dark:hover {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: hsl(34deg, 84%, 50%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-secondary-light {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: transparent;
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 100%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-secondary-light:hover {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: hsl(34deg, 84%, 50%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 100%);
+  text-decoration: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .icon-link {
@@ -57,6 +180,24 @@ body {
           transform: scale(1.9);
   color: hsl(0deg, 0%, 0%);
   text-decoration: none;
+}
+
+.accordion-bg {
+  background: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+}
+
+.accordion-bg:focus {
+  background: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+  border-color: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.accordion-bg:not(.collapsed) {
+  background: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
 }
 
 .main-card {

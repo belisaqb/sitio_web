@@ -1,4 +1,5 @@
 @use '../abstracts/vars';
+@use '../abstracts/mixins';
 
 .text-light {
     color: var(vars.$clr-white);
@@ -19,4 +20,12 @@
 .content{
     font-family: var(vars.$ff-secondary);
     color: var(vars.$clr-grey-3);
+}
+
+.text-link{
+    @include mixins.text-link(vars.$clr-black);
+}
+
+.text-link:hover{
+    @include mixins.text-link-hover(vars.$clr-black);
 }
