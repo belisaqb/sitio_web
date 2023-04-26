@@ -3,25 +3,33 @@ body {
   color: hsl(0deg, 0%, 0%);
 }
 
+.img-container {
+  background-image: url(../imgs/oranges.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+  height: 800px;
+}
+
 .text-light {
-  color: var(hsl(0deg, 0%, 100%));
+  color: hsl(0deg, 0%, 100%);
 }
 
 .text-dark {
-  color: var(hsl(0deg, 0%, 0%));
+  color: hsl(0deg, 0%, 0%);
 }
 
 .text-yellow {
-  color: var(hsl(34deg, 84%, 50%));
+  color: hsl(34deg, 84%, 50%);
 }
 
 .text-grey {
-  color: var(hsl(0deg, 0%, 32%));
+  color: hsl(0deg, 0%, 32%);
 }
 
-.content {
-  font-family: var("Noto Serif");
-  color: var(hsl(0deg, 0%, 32%));
+.content-text {
+  font-family: "Noto Serif";
+  color: hsl(0deg, 0%, 32%);
 }
 
 .text-link {
@@ -37,6 +45,19 @@ body {
   -webkit-transform: translate(0.5rem);
           transform: translate(0.5rem);
   font-weight: bold;
+}
+
+.text-link-muted {
+  display: block;
+  text-decoration: none;
+  color: hsl(0deg, 0%, 60%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+
+.text-link-muted:hover {
+  color: hsl(0deg, 0%, 0%);
 }
 
 .btn-dark {

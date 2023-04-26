@@ -4,3 +4,11 @@ body{
     font-family: vars.$ff-primary;
     color: vars.$clr-black;
 }
+
+.img-container{
+    background-image: url(../imgs/oranges.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    height: 800px;
+}

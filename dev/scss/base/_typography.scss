@@ -2,24 +2,24 @@
 @use '../abstracts/mixins';
 
 .text-light {
-    color: var(vars.$clr-white);
+    color: vars.$clr-white;
 }
 
 .text-dark {
-    color: var(vars.$clr-black);
+    color: vars.$clr-black;
 }
 
 .text-yellow {
-    color: var(vars.$clr-yellow);
+    color: vars.$clr-yellow;
 }
 
 .text-grey {
-    color:var(vars.$clr-grey-3);
+    color: vars.$clr-grey-3;
 }
 
-.content{
-    font-family: var(vars.$ff-secondary);
-    color: var(vars.$clr-grey-3);
+.content-text{
+    font-family: vars.$ff-secondary;
+    color: vars.$clr-grey-3;
 }
 
 .text-link{
@@ -28,4 +28,14 @@
 
 .text-link:hover{
     @include mixins.text-link-hover(vars.$clr-black);
+}
+
+.text-link-muted{
+    @include mixins.text-link(vars.$clr-grey-2);
+    text-decoration: underline;
+}
+
+.text-link-muted:hover{
+    color: vars.$clr-black;
+    
 }
