@@ -10,11 +10,25 @@ body {
   background-size: contain;
   height: 800px;
 }
+@media only screen and (max-width: 480px) {
+  .img-container {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .img-container {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .img-container {
+    display: none;
+  }
+}
 
 .blue-container {
   background: hsl(212deg, 91%, 13%);
   color: hsl(0deg, 0%, 100%);
-  border-radius: 0.5rem;
 }
 
 .text-light {
@@ -54,6 +68,18 @@ body {
   color: hsl(0deg, 0%, 0%);
   -webkit-transform: translate(0.5rem);
           transform: translate(0.5rem);
+}
+
+.unlink {
+  display: block;
+  text-decoration: none;
+  color: hsl(0deg, 0%, 0%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.unlink:hover {
+  color: hsl(0deg, 0%, 0%);
 }
 
 .text-link-muted {
@@ -205,13 +231,6 @@ body {
   color: hsl(34deg, 84%, 50%);
 }
 
-.arrow-link {
-  -webkit-transform: scale(1.9);
-          transform: scale(1.9);
-  color: hsl(0deg, 0%, 0%);
-  text-decoration: none;
-}
-
 .accordion-bg {
   background: hsl(34deg, 84%, 50%);
   color: hsl(0deg, 0%, 0%);
@@ -249,7 +268,6 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  width: 21.25rem;
 }
 
 .badge:hover {
@@ -312,6 +330,21 @@ body {
 .bullet {
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
+}
+
+.arrow-link {
+  -webkit-transform: scale(1.9);
+          transform: scale(1.9);
+  color: hsl(0deg, 0%, 0%);
+  text-decoration: none;
+}
+
+.arrow-down {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  color: hsl(0deg, 0%, 0%);
+  -webkit-transform: rotate(90);
+          transform: rotate(90);
 }
 
 .footer-bg {

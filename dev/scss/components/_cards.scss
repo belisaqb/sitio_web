@@ -10,7 +10,6 @@
 .badge{
     @include mixins.card(vars.$clr-grey-4, vars.$clr-grey-4, vars.$clr-black);
     display: inline-flex;
-    width: 21.25rem;
 }        
 
 .badge:hover{

@@ -1,5 +1,6 @@
 @use '../abstracts/vars';
 @use '../abstracts/mixins';
+@use '../vendor/media-queries';
 
 body{
     font-family: vars.$ff-primary;
@@ -12,9 +13,19 @@ body{
     background-attachment: fixed;
     background-size: contain;
     height: 800px;
+
+    @include media-queries.respond-to(media-queries.$phone){
+        display: none;
+    }
+    @include media-queries.respond-to(media-queries.$tablet-portrait){
+        display: none;
+    }
+    @include media-queries.respond-to(media-queries.$tablet-portrait){
+        display: none;
+    }
 }
 
 .blue-container{
     @include mixins.container-bg(vars.$clr-blue, vars.$clr-white);
-    border-radius: .5rem;
+    //border-radius: .5rem;
 }

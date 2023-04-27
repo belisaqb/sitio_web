@@ -20,3 +20,16 @@
 .bullet{
     @include mixins.element-resize(0.5);
 }
+
+.arrow-link {
+    transform: scale(1.9);
+    color: vars.$clr-black;
+    text-decoration: none;
+}
+
+.arrow-down{
+    transform: scale(3);
+    color: vars.$clr-black;
+    transform: rotate(90);
+}
+
