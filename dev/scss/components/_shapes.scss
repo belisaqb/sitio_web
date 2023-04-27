@@ -1,0 +1,22 @@
+@use '../abstracts/vars';
+@use '../abstracts/mixins';
+
+.vertical-line{
+    @include mixins.line(left, vars.$clr-yellow, 3.75rem, 0.125rem);
+}
+
+.horizontal-line{
+    @include mixins.line(top, vars.$clr-yellow, 0.125rem, 5rem);
+}
+
+.circle{
+    @include mixins.circle(5rem, vars.$clr-grey-1);
+}
+
+.circle-profile{
+    @include mixins.circle(12.5rem, vars.$clr-grey-4);
+}
+
+.bullet{
+    @include mixins.element-resize(0.5);
+}

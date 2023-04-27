@@ -11,6 +11,12 @@ body {
   height: 800px;
 }
 
+.blue-container {
+  background: hsl(212deg, 91%, 13%);
+  color: hsl(0deg, 0%, 100%);
+  border-radius: 0.5rem;
+}
+
 .text-light {
   color: hsl(0deg, 0%, 100%);
 }
@@ -32,6 +38,10 @@ body {
   color: hsl(0deg, 0%, 32%);
 }
 
+.aux-text {
+  font-family: "Noto Serif";
+}
+
 .text-link {
   display: block;
   text-decoration: none;
@@ -44,7 +54,6 @@ body {
   color: hsl(0deg, 0%, 0%);
   -webkit-transform: translate(0.5rem);
           transform: translate(0.5rem);
-  font-weight: bold;
 }
 
 .text-link-muted {
@@ -227,8 +236,82 @@ body {
   border: solid;
   border-radius: 0.5rem;
   border-color: hsl(0deg, 0%, 80%);
-  max-width: 18rem;
   word-wrap: break-word;
+}
+
+.badge {
+  background: hsl(0deg, 0%, 80%);
+  color: hsl(0deg, 0%, 0%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(0deg, 0%, 80%);
+  word-wrap: break-word;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 21.25rem;
+}
+
+.badge:hover {
+  background: hsl(34deg, 84%, 50%);
+  color: hsl(0deg, 0%, 0%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(34deg, 84%, 50%);
+  word-wrap: break-word;
+}
+
+.profile-badge {
+  background: hsl(0deg, 0%, 92%);
+  color: hsl(0deg, 0%, 0%);
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(0deg, 0%, 92%);
+  word-wrap: break-word;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 50rem;
+}
+
+.icon-badge {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.vertical-line {
+  border-left: 0.2rem solid hsl(34deg, 84%, 50%);
+  height: 3.75rem;
+  width: 0.125rem;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-line {
+  border-top: 0.2rem solid hsl(34deg, 84%, 50%);
+  height: 0.125rem;
+  width: 5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.circle {
+  width: 5rem;
+  height: 5rem;
+  background: hsl(0deg, 0%, 92%);
+  border-radius: 50%;
+}
+
+.circle-profile {
+  width: 12.5rem;
+  height: 12.5rem;
+  background: hsl(0deg, 0%, 80%);
+  border-radius: 50%;
+}
+
+.bullet {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
 }
 
 .footer-bg {
@@ -248,5 +331,4 @@ body {
   color: hsl(0deg, 0%, 100%);
   -webkit-transform: translate(0.5rem);
           transform: translate(0.5rem);
-  font-weight: bold;
 }

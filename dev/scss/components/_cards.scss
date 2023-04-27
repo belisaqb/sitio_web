@@ -3,4 +3,26 @@
 
 .main-card{
     @include mixins.card(vars.$clr-white, vars.$clr-grey-4, vars.$clr-black);
+    // max-width: 18rem;
+}
+
+//badges
+.badge{
+    @include mixins.card(vars.$clr-grey-4, vars.$clr-grey-4, vars.$clr-black);
+    display: inline-flex;
+    width: 21.25rem;
+}        
+
+.badge:hover{
+    @include mixins.card(vars.$clr-yellow, vars.$clr-yellow, vars.$clr-black);
+}
+
+.profile-badge{
+    @include mixins.card(vars.$clr-grey-1, vars.$clr-grey-1, vars.$clr-black);
+    display: inline-flex;
+    width: 50rem;
+}
+
+.icon-badge{
+    @include mixins.element-resize(2);
 }

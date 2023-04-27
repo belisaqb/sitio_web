@@ -1,4 +1,5 @@
 @use '../abstracts/vars';
+@use '../abstracts/mixins';
 
 body{
     font-family: vars.$ff-primary;
@@ -11,4 +12,9 @@ body{
     background-attachment: fixed;
     background-size: contain;
     height: 800px;
+}
+
+.blue-container{
+    @include mixins.container-bg(vars.$clr-blue, vars.$clr-white);
+    border-radius: .5rem;
 }

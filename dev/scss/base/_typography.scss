@@ -22,13 +22,23 @@
     color: vars.$clr-grey-3;
 }
 
+.aux-text{
+    font-family: vars.$ff-secondary;
+}
+
 .text-link{
     @include mixins.text-link(vars.$clr-black);
 }
 
 .text-link:hover{
-    @include mixins.text-link-hover(vars.$clr-black);
+    color: vars.$clr-black;
+    transform: translate(.5rem);
 }
+
+// .unlink{
+//     @include mixins.text-link(vars.$clr-black);
+// }
+
 
 .text-link-muted{
     @include mixins.text-link(vars.$clr-grey-2);
@@ -36,6 +46,5 @@
 }
 
 .text-link-muted:hover{
-    color: vars.$clr-black;
-    
+    color: vars.$clr-black;    
 }

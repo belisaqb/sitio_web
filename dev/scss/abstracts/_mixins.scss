@@ -1,9 +1,9 @@
 //Base
-//typography
-// @mixin no-decoration($text-color){
-//     text-decoration: none;
-//     color: $text-color;
-// }
+//base
+@mixin element-resize($scale){
+    transform: scale($scale);
+}
+
 
 
 //Components
@@ -29,8 +29,7 @@
     color: $text-color;
     border: solid;
     border-radius: .5rem;
-    border-color: $border-color;
-    max-width: 18rem;
+    border-color: $border-color;    
     word-wrap: break-word;
 }
 
@@ -50,6 +49,26 @@
 @mixin text-link-hover($text-color){
     color: $text-color;
     transform: translate(.5rem);
-    font-weight: bold;
 }
 
+@mixin circle($size, $bg){
+    width: $size;
+    height: $size;
+    background: $bg;
+    border-radius: 50%;
+}
+
+
+//lines
+@mixin line($side,$line-color, $height, $width){
+    @if($side == left){
+        border-left: 0.2rem solid $line-color;
+    }
+    @if($side== top){
+        border-top: 0.2rem solid $line-color;
+    }       
+    height: $height;
+    width: $width;
+    padding: 0;
+    margin: 0;
+}
