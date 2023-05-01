@@ -297,12 +297,28 @@ body {
           transform: scale(2);
 }
 
+.blue-badge {
+  background: hsl(212deg, 91%, 13%);
+  color: hsl(0deg, 0%, 100%);
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 480px) {
+  .blue-badge {
+    display: block;
+  }
+}
+
 .vertical-line {
   border-left: 0.2rem solid hsl(34deg, 84%, 50%);
   height: 3.75rem;
   width: 0.125rem;
   padding: 0;
   margin: 0;
+}
+@media only screen and (max-width: 480px) {
+  .vertical-line {
+    display: none;
+  }
 }
 
 .horizontal-line {
@@ -311,6 +327,29 @@ body {
   width: 5rem;
   padding: 0;
   margin: 0;
+}
+
+.segment {
+  border-top: 0.2rem solid hsl(34deg, 84%, 50%);
+  height: 0.125rem;
+  width: 5rem;
+  padding: 0;
+  margin: 0;
+}
+@media only screen and (min-width: 1200px) {
+  .segment {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .segment {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .segment {
+    display: none;
+  }
 }
 
 .circle {

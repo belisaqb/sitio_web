@@ -1,5 +1,6 @@
 @use '../abstracts/vars';
 @use '../abstracts/mixins';
+@use '../vendor/media-queries';
 
 .main-card{
     @include mixins.card(vars.$clr-white, vars.$clr-grey-4, vars.$clr-black);
@@ -24,4 +25,13 @@
 
 .icon-badge{
     @include mixins.element-resize(2);
+}
+
+.blue-badge{
+    @include mixins.container-bg(vars.$clr-blue, vars.$clr-white);
+    border-radius: .5rem;
+
+    @include media-queries.respond-to(media-queries.$phone){
+        display: block;
+    };
 }
