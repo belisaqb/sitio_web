@@ -1,0 +1,7 @@
+@use '../abstracts/vars';
+@use '../abstracts/mixins';
+
+.form-bg{
+    @include mixins.container-bg(vars.$clr-grey-1, vars.$clr-grey-3);
+    border-color: vars.$clr-grey-2;
+}

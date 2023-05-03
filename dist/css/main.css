@@ -4,7 +4,7 @@ body {
 }
 
 .img-container {
-  background-image: url(../imgs/oranges.jpg);
+  background-image: url(../imgs/oranges.webp);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
@@ -384,6 +384,12 @@ body {
   color: hsl(0deg, 0%, 0%);
   -webkit-transform: rotate(90);
           transform: rotate(90);
+}
+
+.form-bg {
+  background: hsl(0deg, 0%, 92%);
+  color: hsl(0deg, 0%, 32%);
+  border-color: hsl(0deg, 0%, 60%);
 }
 
 .footer-bg {
