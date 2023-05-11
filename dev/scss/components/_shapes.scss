@@ -14,20 +14,6 @@
     @include mixins.line(top, vars.$clr-yellow, 0.125rem, 5rem);
 }
 
-.segment{
-    @include mixins.line(top, vars.$clr-yellow, 0.125rem, 5rem);
-
-    @include media-queries.respond-to(media-queries.$large-desktop){
-        display: none;
-    }
-    @include media-queries.respond-to(media-queries.$tablet-portrait){
-        display: none;
-    }
-    @include media-queries.respond-to(media-queries.$tablet-portrait){
-        display: none;
-    }
-}
-
 .circle{
     @include mixins.circle(5rem, vars.$clr-grey-1);
 }

@@ -329,29 +329,6 @@ body {
   margin: 0;
 }
 
-.segment {
-  border-top: 0.2rem solid hsl(34deg, 84%, 50%);
-  height: 0.125rem;
-  width: 5rem;
-  padding: 0;
-  margin: 0;
-}
-@media only screen and (min-width: 1200px) {
-  .segment {
-    display: none;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .segment {
-    display: none;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .segment {
-    display: none;
-  }
-}
-
 .circle {
   width: 5rem;
   height: 5rem;

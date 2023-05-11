@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--GOOGLE FONTS
+    Lato-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!--GOOGLE FONTS
+    Noto serif-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+        onerror="this.onerror=null;this.href='./css/vendors/bootstrap.min.css';">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <title>Recipe Register</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg blue-container">
+        <div class="container gap-0 gap-sm-3">
+            <a class="navbar-brand" href="#"> <img class="img-fluid w-25" src="./imgs/white-logo.webp" alt="Logo">
+            </a>
+
+            <form class="d-flex mx-auto col-5 col-sm">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="text-light fa-solid fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-nav-scroll gap-2">
+                    <li class="nav-item d-flex me-2 mt-3 mt-sm-0">
+                        <a class="nav-link align-self-center fw-bold  text-light" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item d-flex me-2">
+                        <a class="nav-link align-self-center fw-bold  text-light" href="#">Destacadas</a>
+                    </li>
+                    <li class="nav-item d-flex me-2">
+                        <a class="nav-link align-self-center fw-bold text-light" href="#">Recetas</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="btn-secondary-light nav-link fw-bold" href="register.html">Registrarse</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="btn-light nav-link me-2 fw-bold" href="login.html">Iniciar Sesión</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="row d-flex justify-content-center p-0 m-0">
+
+        <div class="container my-5 p-lg-5">
+            <form action="response.php" method="post">
+                <h1 class="display-3 fw-bold text-center">Registro de recetas</h1>
+                <p class="text-phar text-center ">Ingrese los datos de la receta</p>
+
+                <div class="row d-flex justify-content-center mx-2">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="my-4 col-lg-11">
+                            <label for="nombreReceta" class="form-label fw-bold">Nombre de la Receta</label>
+                            <div class="input-group">
+                                <div class="form-floating">
+                                    <input id="nombreReceta" class="form-control form-control-sm form-bg" type="text"
+                                        name="nombreReceta" placeholder="Nombre Receta">
+                                    <label for="nombreReceta">Nombre de la Receta</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-4 col-lg-11">
+                            <label for="tiempoPreparacion" class="form-label fw-bold">Tiempo de preparación</label>
+                            <div class="input-group">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-bg" id="tiempoPreparacion"
+                                        name="tiempoPreparacion" placeholder="Tiempo de preparacion">
+                                    <label for="tiempoPreparacion">Ingrese el tiempo de preparación</label>
+                                </div>
+                                <span class="input-group-text blue-container ">min</span>
+                            </div>
+                        </div>
+
+                        <div class="my-4 col-lg-11">
+                            <label for="tiempoCoccion" class="form-label fw-bold">Tiempo de Cocción</label>
+                            <div class="input-group">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-bg" id="tiempoCoccion"
+                                        name="tiempoCoccion" placeholder="Username">
+                                    <label for="tiempoCoccion">Ingrese el tiempo de Cocción</label>
+                                </div>
+                                <span class="input-group-text blue-container">min</span>
+                            </div>
+                        </div>
+
+                        <div class="my-4 col-lg-11">
+                            <label for="tiempoTotal" class="form-label fw-bold">Tiempo Total</label>
+                            <div class="mb-2">
+                                <div class="input-group">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control form-bg" id="tiempoTotal"
+                                            name="tiempoTotal" placeholder="Tiempo Total">
+                                        <label for="tiempoTotal">Ingrese el tiempo Total</label>
+                                    </div>
+                                    <span class="input-group-text blue-container">min</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 col-lg-11">
+                            <label for="porciones" class="form-label fw-bold">Porciones</label>
+                            <div class="input-group">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-bg" id="porciones" name="porciones"
+                                        placeholder="Porciones">
+                                    <label for="porciones">Ingrese las porciones</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--Segunda Columna-->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+
+                        <div class="my-4 col-lg-11">
+                            <label for="category" class="form-label fw-bold">Categoría</label>
+                            <div class="form-floating">
+                                <select class="form-select  form-bg" name="category" id="category"
+                                    aria-label="Floating label select example">
+                                    <option selected>...</option>
+                                    <option value="">Desayunos</option>
+                                </select>
+                                <label for="category">Seleccione la Categoría</label>
+                            </div>
+                        </div>
+                        <div class="my-4 col-lg-11">
+                            <label for="level" class="form-label fw-bold">Complejidad</label>
+                            <div class="form-floating">
+                                <select class="form-select  form-bg" name="level" id="level"
+                                    aria-label="Floating label select example">
+                                    <option selected>...</option>
+                                    <option value="">Media</option>
+                                </select>
+                                <label for="level">Seleccione la Complejidad</label>
+                            </div>
+                        </div>
+
+                        <div class="my-4 col-lg-11">
+                            <label for="ocasion" class="form-label fw-bold">Ocasión</label>
+                            <div class="form-floating">
+                                <select class="form-select form-bg" aria-label="Floating label select example"
+                                    name="ocasion" id="ocasion">
+                                    <option selected>...</option>
+                                    <option value="">Todas</option>
+                                </select>
+                                <label for="ocasion">Seleccione la Ocasión</label>
+                            </div>
+                        </div>
+
+                        <div class="my-4 col-lg-11">
+                            <label for="votos" class="form-label fw-bold">Votos de la Receta</label>
+                            <div class="input-group">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-bg" id="votos" name="votos"
+                                        placeholder="Votos">
+                                    <label for="votos">Ingrese los votos de la receta</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-5">
+                            <label for="recetaDestacada" class="form-label fw-bold">¿Receta destacada?</label>
+                            <div class="mb-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div>                        
+
+                        <div class="col-lg-7 col-md-9 col-sm-12 my-4">
+                            <label for="descripcion" class="form-label fw-bold">Descripción</label>
+                            <textarea id="descripcion" class="form-control form-bg" name="descripcion"
+                                placeholder="Descripción"></textarea>
+                        </div>
+
+                        <div class="col-lg-7 col-md-9 col-sm-12 my-4">
+                            <label for="ingredientes" class="form-label fw-bold">Ingredientes</label>
+
+                            <div id="ingredients">
+
+                            </div>
+                            <button type="button" id="add-ingredient" class="btn-secondary-dark mt-3">Añadir
+                                ingredientes</button>
+
+                        </div>
+
+                        <div class="col-lg-7 col-md-9 col-sm-12 my-4">
+                            <label for="instrucciones" class="form-label fw-bold">Instrucciones de preparación</label>
+                            <div id="instructions">
+
+                            </div>
+                            <button type="button" id="add-instructions" class="btn-secondary-dark mt-3">Añadir
+                                instrucciones</button>
+                        </div>
+
+                        <div class="col-lg-7 col-md-9 col-sm-12 my-4">
+                            <label for="imagen" class="form-label fw-bold">Imagen</label>
+                            <input id="imagen" class="form-control form-bg" type="file" name="imagen">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start">
+                        <div class="col-lg-6 col-sm-6 my-4">
+                            <input class="btn-dark mb-4 me-3" type="submit" value="Registrar Receta">
+                            <a class=" btn-secondary-dark nav-link me-2 my-3" href="admin-view.html">Cancelar</a>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+        <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
+
+        <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    let preview = document.getElementById('preview').setAttribute('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        document.querySelector('#add-ingredient').addEventListener('click', function () {
+
+            event.preventDefault();
+            let ingredient = document.createElement("div");
+            let id = "ingredient-" + Date.now();
+            ingredient.id = id;
+            ingredient.setAttribute('class', 'mt-2');
+            document.querySelector('#ingredients').appendChild(ingredient);
+
+            let label = document.createElement("label");
+            label.innerText = "Ingrediente";
+            label.setAttribute('for', 'ingredient');
+            document.querySelector('#' + id).appendChild(label);
+
+
+            let input = document.createElement("input");
+            input.type = "text";
+            input.setAttribute('name', "ingredients[]");
+            input.setAttribute('class', 'mx-3 form-bg rounded p-2');
+            document.querySelector('#' + id).appendChild(input);
+
+
+            let i = document.createElement("i");
+            i.setAttribute('class', 'icon-link fa-solid fa-trash-can');
+            i.addEventListener("click", function () {
+                document.querySelector('#' + id).remove();
+            });
+            document.querySelector('#' + id).appendChild(i);
+
+        });
+
+        document.querySelector('#add-instructions').addEventListener('click', function () {
+
+            event.preventDefault();
+            let instruction = document.createElement("div");
+            let id = "instruction-" + Date.now();
+            instruction.id = id;
+            instruction.setAttribute('class', 'mt-2');
+            document.querySelector('#instructions').appendChild(instruction);
+
+            let label = document.createElement("label");
+            label.innerText = "Instrucción";
+            label.setAttribute('for', 'instruction');
+            document.querySelector('#' + id).appendChild(label);
+
+
+            let input = document.createElement("input");
+            input.type = "text";
+            input.setAttribute('name', "instructions[]");
+            input.setAttribute('class', 'mx-3 form-bg rounded p-2');
+            document.querySelector('#' + id).appendChild(input);
+
+
+            let i = document.createElement("i");
+            i.setAttribute('class', 'icon-link fa-solid fa-trash-can');
+            i.addEventListener("click", function () {
+                document.querySelector('#' + id).remove();
+            });
+            document.querySelector('#' + id).appendChild(i);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
