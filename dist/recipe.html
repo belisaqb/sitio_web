@@ -37,22 +37,16 @@
     <section id="app">
         <header>
             <!--//////////////////////////////////////////Header///////////////////////////////////////////-->
-            <nav class="navbar navbar-expand-lg blue-container">
+            <nav class="navbar navbar-expand-lg blue-container py-2">
                 <div class="container gap-0 gap-sm-3">
-                    <a class="navbar-brand" href="#"> <img class="img-fluid w-25" src="./imgs/white-logo.webp"
-                            alt="Logo">
+                    <a class="navbar-brand" href="#"> <img class="img-fluid w-25" src="./imgs/white-logo.webp" alt="Logo">
                     </a>
-
-                    <form class="d-flex mx-auto col-5 col-sm">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                        aria-label="Toggle navigation">
+            
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="text-light fa-solid fa-bars"></i>
                     </button>
-
+            
                     <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-nav-scroll gap-2">
                             <li class="nav-item d-flex me-2 mt-3 mt-sm-0">
@@ -61,190 +55,59 @@
                             <li class="nav-item d-flex me-2">
                                 <a class="nav-link align-self-center fw-bold  text-light" href="#">Destacadas</a>
                             </li>
-                            <li class="nav-item d-flex me-2">
+                            <li class="nav-item d-flex me-5">
                                 <a class="nav-link align-self-center fw-bold text-light" href="#">Recetas</a>
                             </li>
-                            <li class="nav-item me-2">
-                                <a class="btn-secondary-light nav-link fw-bold" href="register.html">Registrarse</a>
+                            <li class="nav-item d-flex me-5">
+                                <form class="d-flex col-sm">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn-light" type="submit"><i
+                                            class="align-self-center fa-solid fa-magnifying-glass"></i></button>
+                                </form>
+                            </li>
+                            <li class="nav-item me-2 mt-3 mt-sm-0">
+                                <a class="btn-secondary-light nav-link fw-bold " href="register.html">Registrarse</a>
                             </li>
                             <li class="nav-item me-2">
-                                <a class="btn-light nav-link me-2 fw-bold" href="login">Iniciar Sesión</a>
+                                <a class="btn-light nav-link me-2 fw-bold " href="login.html">Iniciar Sesión</a>
                             </li>
-
+            
                         </ul>
                     </div>
-
+            
                 </div>
             </nav>
 
         </header>
         <!--//////////////////////////////////////////Header///////////////////////////////////////////-->
 
-        <div class="container my-4">
-            <div class="row d-flex">
-                <div class="col-lg-6 d-flex mx-auto px-4 my-4">
-                    <div class="align-self-center">
-                        <h2 class="display-6 fw-bold mb-3">Nombre de la Receta</h2>
-                        <h4 class="fw-bold text-yellow fst-italic mb-3">Receta Destacada</h4>
-                        <p class="horizontal-line mt-4 mb-3"></p>
-                        <p class="content-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam sint
-                            dicta
-                            possimus vel suscipit exercitationem earum consequuntur reiciendis dolorem? Molestias
-                            adipisci
-                            facilis quos iste perspiciatis aliquam itaque magnam qui saepe.</p>
-                        <div class="row d-flex py-3">
-                            <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i
-                                        class="icon-link fa-solid fa-bookmark"></i></a>
-                            </div>
-                            <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i
-                                        class="icon-link fa-solid fa-share"></i></a>
-                            </div>
-                            <div class="col-3"><a class="text-dark text-decoration-none" href="#"><i
-                                        class="icon-link fa-solid fa-thumbs-up me-3"></i>10</a>
-                            </div>
-                        </div>
+
+        <div>
+            <recipe-details></recipe-details>
+
+        </div>        
+        
+
+        <!--////////////////////////////Recetas Relacionadas/////////////////////////////////-->
+        <div class="container-fluid blue-container py-5">
+            <div class="container my-5 text-center">
+                <h2 class="mx-auto mb-5  fw-bold fst-italic">Recetas Relacionadas</h2>
+        
+        
+                <div class="main-carousel mb-3 " data-flickity='{ "cellAlign": "left", "contain": true }'>
+        
+                    <div class="carousel-cell me-3 mb-3 col-lg-3">
+                        <recipe-card></recipe-card>
                     </div>
-
-                </div>
-                <div class="col-lg-6 mx-auto flex-grow-1 px-4 my-4">
-                    <img class="img-fluid" src="./imgs/jumbo.webp" alt="Pancakes">
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <!--///////////////////////////Badges///////////////////////////////////-->
-        <div class="container my-5">
-            <div class="row gap-3 mx-0 mx-sm-2">
-                <div class="col-sm-6 col-md-6 col-lg badge">
-                    <a class="d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
-                            <div class="circle mx-auto d-flex justify-content-center">
-                                <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Categoría:</p>
-                            <h5 class="fw-bold mb-0">Desayunos</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg badge">
-                    <a class=" d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
-                            <div class="circle mx-auto d-flex justify-content-center">
-                                <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Ocasión:</p>
-                            <h5 class="fw-bold mb-0">Día de la Madre</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg badge">
-                    <a class=" d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
-                            <div class="circle mx-auto d-flex justify-content-center">
-                                <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Dificultad:</p>
-                            <h5 class="fw-bold mb-0">Fácil</h5>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!--///////////////////////////Detalles///////////////////////////////////-->
-
-        <div class="container my-5">
-            <div class="row blue-badge py-5 mx-3 mx-sm-0 ">
-                <div class="col-0 col-sm text-center">
-                    <p class="mb-2 fw-light aux-text small">Porciones:</p>
-                    <h4 class="fw-bold mb-0">6</h4>
-                </div>
-                <p class="vertical-line"></p>
-                <div class="col-0 col-sm text-center mt-5 mt-sm-0">
-                    <p class="mb-2 fw-light aux-text small">Preparación:</p>
-                    <h4 class="fw-bold mb-0">10 min</h4>
-                </div>
-                <p class="vertical-line"></p>
-                <div class="col-0 col-sm text-center mt-5 mt-sm-0">
-                    <p class="mb-2 fw-light aux-text small">Cocción:</p>
-                    <h4 class="fw-bold mb-0">10 min</h4>
-                </div>
-                <p class="vertical-line"></p>
-                <div class="col-0 col-sm text-center mt-5 mt-sm-0">
-                    <p class="mb-2 fw-light aux-text small">Total:</p>
-                    <h4 class="fw-bold mb-0">10 min</h4>
+        
                 </div>
             </div>
+        
         </div>
-
-
-
-        <!--///////////////////////////Ingredientes///////////////////////////////////-->
-
-        <div class="container my-5">
-            <h3 class="fw-bold mb-4">Ingredientes</h3>
-            <div>
-
-                <ul class="list-group list-group-flush content-text">
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>1 taza de azúcar</li>
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>2 tazas de harina</li>
-                </ul>
-
-            </div>
-        </div>
-
-
-        <!--///////////////////////////Instrucciones de Preparación///////////////////////////////////-->
-
-        <div class="container my-5 mb-5">
-            <h3 class="fw-bold mb-4">Instrucciones de Preparación</h3>
-            <div>
-                <ul class="list-group list-group-flush content-text">
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. A at quas nobis
-                        tenetur iusto unde eius illo
-                        doloremque quaerat! In animi delectus laboriosam autem. Voluptatibus id placeat omnis molestias
-                        doloribus.</li>
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. A at quas nobis
-                        tenetur iusto unde eius illo
-                        doloremque quaerat! In animi delectus laboriosam autem. Voluptatibus id placeat omnis molestias
-                        doloribus.</li>
-                </ul>
-
-            </div>
-        </div>
-        <hr>
-
-        <!--////////////////////////////Me gusta/////////////////////////////////-->
-        <div class="container my-5 text-center">
-            <h2 class="mx-auto mb-5 fw-bold fst-italic">Recetas Relacionadas</h2>
-            <div class="main-carousel mb-3" data-flickity='{ "cellAlign": "left", "contain": true }'>
-
-                <div class="carousel-cell me-3 mb-3">
-                    <recipe-card></recipe-card>
-                </div>
-
-            </div>
-
-        </div>
+        
 
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
-        <div class="container-fluid d-flex mt-5 pt-5 pb-0 footer-bg">
+        <div class="container-fluid d-flex  pt-5 pb-0 footer-bg">
             <div class="container align-self-center">
 
                 <div class="row mb-3">
@@ -310,6 +173,7 @@
 
     <!-- carga de components -->
     <script src="./js/components/RecipeCard.js"></script>
+    <script src="./js/components/RecipeDetails.js"></script>
 
     <!-- montar la app -->
     <script>
