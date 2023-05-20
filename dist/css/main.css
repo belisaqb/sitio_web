@@ -256,6 +256,7 @@ body {
   border-radius: 0.5rem;
   border-color: hsl(0deg, 0%, 80%);
   word-wrap: break-word;
+  max-width: 18rem;
 }
 
 .badge {

@@ -1,5 +1,8 @@
 app.component('recipe-card', {
     props: {
+        index: {
+            type: Number,
+        },
         image: {
             type: String,
             default: "./imgs/card.webp"
@@ -21,11 +24,17 @@ app.component('recipe-card', {
             default: "Media"
         }
     },
+    methods: {
+        onClickRecipeDetails(index) {
+            console.log("View");
+            this.$emit('recipe-details', this.index);
+        }
+    },
     template:
     /*html*/
     `<div class="main-card text-start pb-4">
         <div class="img-card-recipe">
-            <img :src="image" class="card-img-top rounded-top" alt="name">
+            <img :src="image" class="img-fluid card-img-top rounded-top" alt="name">
         </div>
 
         <div class="card-body d-flex">
@@ -39,7 +48,7 @@ app.component('recipe-card', {
             </li>
             <li class="card-text mb-2">{{ level }}</li>
         </ul>
-        <a class="d-flex btn-dark justify-content-center mx-3" href="recipe.html">
+        <a class="d-flex btn-dark justify-content-center mx-3" href="recipe.html" v-on:click="onClickRecipeDetails(index)" >
             <div class="fw-bold px-5">Ver más</div>
         </a>
     </div>`

@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./css/main.css">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="./imgs/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./imgs/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./imgs/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./imgs/favicon/site.webmanifest">
+
     <!--Flickity-->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
@@ -33,70 +38,24 @@
 </head>
 
 <body>
-    <section id="app" >
+    <section id="app">
         <!--/////////////////////////////////Header////////////////////////////////////-->
         <header>
-            <!--//////////////////////////////////////////Header///////////////////////////////////////////-->
-            <nav class="navbar navbar-expand-lg blue-container py-2">
-                <div class="container gap-0 gap-sm-3">
-                    <a class="navbar-brand" href="#"> <img class="img-fluid w-25" src="./imgs/white-logo.webp"
-                            alt="Logo">
-                    </a>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="text-light fa-solid fa-bars"></i>
-                    </button>
-
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-nav-scroll gap-2">
-                            <li class="nav-item d-flex me-2 mt-3 mt-sm-0">
-                                <a class="nav-link align-self-center fw-bold  text-light" href="index.html">Inicio</a>
-                            </li>
-                            <li class="nav-item d-flex me-2">
-                                <a class="nav-link align-self-center fw-bold  text-light" href="#">Destacadas</a>
-                            </li>
-                            <li class="nav-item d-flex me-5">
-                                <a class="nav-link align-self-center fw-bold text-light" href="#">Recetas</a>
-                            </li>
-                            <li class="nav-item d-flex me-5">
-                                <form class="d-flex col-sm">
-                                    <input class="form-control me-2" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <button class="btn-light" type="submit"><i
-                                            class="align-self-center fa-solid fa-magnifying-glass"></i></button>
-                                </form>
-                            </li>
-                            <li class="nav-item me-2 mt-3 mt-sm-0">
-                                <a class="btn-secondary-light nav-link fw-bold " href="register.html">Registrarse</a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <a class="btn-light nav-link me-2 fw-bold " href="login.html">Iniciar Sesión</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
+            <nav-bar></nav-bar>
 
             <div class="container my-5">
                 <div class="row d-flex">
                     <div class="col-lg-5 d-flex mx-auto px-4 my-4">
                         <div class="align-self-center">
                             <h1 class="display-6 fw-bold mb-3">Las Mejores <span class="text-yellow">Recetas</span> en
-                                un
-                                solo lugar</h1>
+                                un solo lugar</h1>
                             <p class="horizontal-line mt-4 mb-3"></p>
                             <p class="content-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
-                                sint
-                                dicta
-                                possimus vel suscipit exercitationem earum consequuntur reiciendis dolorem? Molestias
-                                adipisci
-                                facilis quos iste perspiciatis aliquam itaque magnam qui saepe.</p>
+                                sint dicta possimus vel suscipit exercitationem earum consequuntur reiciendis dolorem?
+                                Molestias adipisci facilis quos iste perspiciatis aliquam itaque magnam qui saepe.</p>
                             <div class="d-flex justify-content-center mt-5 pt-4">
-                                <a class="" href="#">
+                                <a class="" href="#highlighted">
                                     <i class="arrow-down icon-link fa-solid fa-circle-arrow-down"></i>
                                 </a>
                             </div>
@@ -108,27 +67,25 @@
                 </div>
             </div>
         </header>
-
+        <!--//////////////////////////////////////////Header///////////////////////////////////////////-->
 
 
 
 
         <!--/////////////////////////////////////////Destacadas///////////////////////////////////////////-->
         <div class="container-fluid blue-container py-5">
-            <div class="container my-5 text-center">
+            <div id="highlighted" class="container my-4 text-center">
                 <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas destacadas</h1>
 
-
                 <div class="main-carousel mb-3 " data-flickity='{ "cellAlign": "left", "contain": true }'>
-
-                    <div class="carousel-cell me-3 mb-3 col-lg-3">
-                        <recipe-card></recipe-card>
+                    <div v-for="(item, index) in recipes" class="carousel-cell me-3 mb-3 col-lg-3">
+                        <recipe-card :index="item.id" :image="item.image" :name="item.name" :time="item.total_time"
+                            :level="item.level" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                     </div>
-
                 </div>
             </div>
-
         </div>
+        <!--/////////////////////////////////////////Destacadas///////////////////////////////////////////-->
 
 
 
@@ -149,7 +106,7 @@
 
 
                     <div class="accordion" id="accordionPanelsStayOpenExample">
-                        
+
                         <accordion></accordion>
                         <accordion></accordion>
                         <accordion></accordion>
@@ -211,8 +168,10 @@
                 <div class="col-lg-9 col-sm-12">
                     <div class="my-5 text-center">
                         <div class="row mx-auto gy-5">
-                            <div class="col col-sm-12 col-lg-4 col-md-6 text-start">
-                                <recipe-card></recipe-card>
+                            <div v-for="(item, index) in recipes" class="col col-sm-12 col-lg-4 col-md-6 text-start">
+                                <recipe-card :index="item.id" :image="item.image" :name="item.name"
+                                    :time="item.total_time" :level="item.level"
+                                    v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                             </div>
                         </div>
                     </div>
@@ -227,56 +186,7 @@
 
 
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
-        <div class="container-fluid d-flex mt-5 pt-5 pb-0 footer-bg">
-            <div class="container align-self-center">
-
-                <div class="row mb-3">
-                    <div class="col-lg-3 col-sm-6 my-4">
-                        <img src="./imgs/white-logo.webp" alt="Logo">
-                    </div>
-                    <div class="col-lg-3 col-sm-6 my-4">
-                        <h5 class="fw-bold mb-3"><a href="#" class="footer-link">Inicio</a></h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><a href="#" class="footer-link">Destacadas</a></li>
-                            <li class="mb-3"><a href="#" class="footer-link">Recetas</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 my-4">
-                        <h5 class="fw-bold mb-3">Síguenos</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><a href="#" class="footer-link"><i
-                                        class="fab fa-facebook me-2"></i>Facebook</a>
-                            </li>
-                            <li class="mb-3"><a href="#" class="footer-link"><i
-                                        class="fab fa-instagram me-2"></i>Instagram</a>
-                            </li>
-                            <li class=""><a href="#" class="footer-link"><i class="fab fa-twitter me-2"></i>Twitter</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 my-4">
-                        <a class="btn-secondary-light nav-link fw-bold mb-4 me-3" href="register.html">Registrarse</a>
-                        <a class="btn-light nav-link me-2 fw-bold" href="login.html">Iniciar Sesión</a>
-                    </div>
-                </div>
-                <div class="border-top py-4">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 content">
-                            <small>2022. Become the chef. Todos los derechos reservados</small>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                            <ul class="list-inline text-lg-end">
-                                <li class="list-inline-item me-3"><a href="#" class="footer-link"><small>Términos
-                                            y condiciones</small></a>
-                                </li>
-                                <li class="list-inline-item me-3"><a href="#" class="footer-link"><small>Aviso de
-                                            Privacidad</small></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <footer-info></footer-info>
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
 
     </section>
@@ -292,6 +202,8 @@
     <!-- carga de components -->
     <script src="./js/components/RecipeCard.js"></script>
     <script src="./js/components/Accordion.js"></script>
+    <script src="./js/components/Navbar.js"></script>
+    <script src="./js/components/Footer.js"></script>
 
     <!-- montar la app -->
     <script>

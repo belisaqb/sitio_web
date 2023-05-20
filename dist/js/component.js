@@ -16,9 +16,23 @@ const app = Vue.createApp({
         }
     },
     mounted: function () {
-        
+        console.log(this.recipes[1]);
     },
     methods: {
-        
+        onClickRecipeDetails(index) {
+            console.log("id:" + index);
+            console.log(this.recipes);
+            let item = this.recipes[index];
+
+            console.log(item);
+
+            this.recipe.id = index;
+            this.recipe.image = item.image;
+            this.recipe.name = item.name;
+            this.recipe.category = item.category;
+            this.recipe.total_time = item.time;
+            this.recipe.level = item.level;
+
+        }
     }
 })
