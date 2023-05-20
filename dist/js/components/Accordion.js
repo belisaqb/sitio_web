@@ -10,13 +10,11 @@ app.component('accordion', {
     `<div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
             <button class="fw-bold lead text-dark accordion-button accordion-bg" type="button"
-                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
-                aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne">
                 {{ title }}
             </button>
         </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-            aria-labelledby="panelsStayOpen-headingOne">
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
             <div class="accordion-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a class="list-link text-link"

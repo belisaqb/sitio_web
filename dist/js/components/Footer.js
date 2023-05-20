@@ -4,7 +4,7 @@ app.component('footer-info', {
     },
     template:
     /*html*/
-    `<div class="container-fluid d-flex mt-5 pt-5 pb-0 footer-bg">
+    `<div class="container-fluid d-flex pt-5 pb-0 footer-bg">
         <div class="container align-self-center">
 
             <div class="row mb-3">
