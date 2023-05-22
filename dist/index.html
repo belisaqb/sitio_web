@@ -76,10 +76,10 @@
             <div id="highlighted" class="container my-4 text-center">
                 <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas destacadas</h1>
 
-                <div class="main-carousel mb-3 " data-flickity='{ "cellAlign": "left", "contain": true }'>
-                    <div v-for="(item) in recipes" class="carousel-cell me-3 mb-3 col-lg-3">
-                        <recipe-card :index="item.id" :image="item.image" :name="item.name" :time="item.total_time"
-                            :level="item.level" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
+                <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
+                    <div v-for="(item) in recipes" class="carousel-cell mb-3 col-lg-3">
+                        <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
+                            :total_time="item.total_time" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <!--/////////////////////////////////////////Recetas//////////////////////////////////////////-->
         <section v-if="home" class="container">
 
-            <h2 class="mt-5 text-center fw-bold fst-italic display-5">Nuestras Recetas</h2>
+            <h2 id="recipes" class="mt-5 text-center fw-bold fst-italic display-5">Nuestras Recetas</h2>
             <div class="row">
                 <div class="col-lg-3 col-sm-12 mt-5">
                     <div class="mb-4">
@@ -184,28 +184,35 @@
         <!--//////////////////////////////////////////Detalle de Receta/////////////////////////////////////////-->
         <div class="m-0 p-0" v-if="details">
 
-            <recipe-details :name="recipe.name" :image="recipe.image" :total_time="recipe.total_time"
-                :level="recipe.level"></recipe-details>
-            
+            <recipe-details :name="recipe.name" :image="recipe.image" :description="recipe.description"
+                :likes="recipe.likes" :category="recipe.category" :occasion="recipe.occasion" :level="recipe.level"
+                :portions="recipe.portions" :total_time="recipe.total_time" :ingredients="recipe.ingredients"
+                :instructions="recipe.instructions"></recipe-details>
+
 
             <!--////////////////////////////Recetas Relacionadas/////////////////////////////////-->
             <div class="container-fluid blue-container py-5">
                 <div class="container my-4 text-center">
                     <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas destacadas</h1>
-                
-                    <div class="main-carousel mb-3 " data-flickity='{ "cellAlign": "left", "contain": true }'>
+
+
+                    <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
+
                         <div v-for="(item) in recipes" class="carousel-cell me-3 mb-3 col-lg-3">
-                            <recipe-card></recipe-card>
+                            <recipe-card :index="item.id" :image="item.image" :name="item.name" :time="item.total_time"
+                                :level="item.level" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                         </div>
+
                     </div>
+
                 </div>
-            
+
             </div>
         </div>
-        
-        
-        
-        
+
+
+
+
         <!--//////////////////////////////////////////Detalle de Receta/////////////////////////////////////////-->
 
 
@@ -219,6 +226,9 @@
 
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- component script -->
     <script src="./js/component.js"></script>
@@ -236,11 +246,15 @@
     </script>
 
 
+
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <!--Flickity-->
+
+    <!-- Flickity -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 </body>
 
 </html>

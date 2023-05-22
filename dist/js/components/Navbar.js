@@ -6,7 +6,7 @@ app.component('nav-bar',{
     /*html*/
     `<nav class="navbar navbar-expand-lg blue-container py-2">
         <div class="container gap-0 gap-sm-3">
-            <a class="navbar-brand" href="#"> <img class="img-fluid w-25" src="./imgs/white-logo.webp"
+            <a class="navbar-brand" href="index.html"> <img class="img-fluid w-25" src="./imgs/white-logo.webp"
                     alt="Logo">
             </a>
 
@@ -22,10 +22,10 @@ app.component('nav-bar',{
                         <a class="nav-link align-self-center fw-bold  text-light" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item d-flex me-2">
-                        <a class="nav-link align-self-center fw-bold  text-light" href="#">Destacadas</a>
+                        <a class="nav-link align-self-center fw-bold  text-light" href="index.html#highlighted">Destacadas</a>
                     </li>
                     <li class="nav-item d-flex me-5">
-                        <a class="nav-link align-self-center fw-bold text-light" href="#">Recetas</a>
+                        <a class="nav-link align-self-center fw-bold text-light" href="index.html#recipes">Recetas</a>
                     </li>
                     <li class="nav-item d-flex me-5">
                         <form class="d-flex col-sm">

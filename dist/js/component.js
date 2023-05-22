@@ -39,22 +39,117 @@ const app = Vue.createApp({
     },
     mounted: function () {
 
+        ////////Carga de API/////
+        axios({
+            method: 'get',
+            url: 'https://api.spoonacular.com/recipes/complexSearch?type=main course&apiKey=a48c522aaf304b2386ce1d225f99b014'
+        })
+            .then(
+                (response) => {
+                    console.log(response);
+
+                    let items = response.data.results;
+                    console.log(items);
+
+                    this.recipes = [];
+                    let time = 0;
+
+                    items.forEach(element => {
+                        axios({
+                            method: 'get',
+                            url: 'https://api.spoonacular.com/recipes/' + element.id + '/information?includeNutrition=false&apiKey=a48c522aaf304b2386ce1d225f99b014'
+                        })
+                        .then(
+                            (response) => {
+                                console.log(response.data.readyInMinutes);
+
+                                time = response.data.readyInMinutes;
+
+                            }
+                        )
+                        this.recipes.push(
+                            {
+                                id: element.id,
+                                name: element.title,
+                                image: element.image,
+                                total_time: time
+                            }
+                        )
+                                
+                    });
+                }
+            )
+            .catch(
+                error => console.log(error)
+            );
     },
     methods: {
         onClickRecipeDetails(index) {
             console.log("id:" + index);
-            console.log(this.recipes);
-            let item = this.recipes[index-1];
 
-            console.log(item);
+            // let item = this.recipes[index-1];
 
-            this.recipe.id = index;
-            this.recipe.image = item.image;
-            this.recipe.name = item.name;
-            this.recipe.category = item.category;
-            this.recipe.total_time = item.time;
-            this.recipe.level = item.level;
+            // //console.log(item);
 
+            // this.recipe.id = index;
+            // this.recipe.image = item.image;
+            // this.recipe.name = item.name;
+            // this.recipe.category = item.category;
+            // this.recipe.total_time = item.time;
+            // this.recipe.level = item.level;
+
+            
+
+            //Carga de los detalles de la receta con el API
+            axios({
+                method: 'get',
+                url: 'https://api.spoonacular.com/recipes/' + index + '/information?includeNutrition=false&apiKey=a48c522aaf304b2386ce1d225f99b014'
+            })
+                .then(
+                    (response) => {
+                        console.log(response);
+
+                        let item = response.data;
+
+                        this.recipe.id = index;
+                        this.recipe.image = item.image;
+                        this.recipe.name = item.title;
+                        this.recipe.description = item.summary;
+                        this.recipe.likes = item.aggregateLikes;
+                        this.recipe.category = item.dishTypes[2];
+                        this.recipe.occasion = item.occasions[0];
+                        this.recipe.level = "Fácil";
+                        this.recipe.total_time = item.readyInMinutes;
+                        this.recipe.portions = item.servings;
+
+                        //llenar el arreglo de ingredientes
+                        let ingredientsList = [];
+
+                        item.extendedIngredients.forEach(element => {
+                            ingredientsList.push(
+                                {ingredient: element.original}
+                            )
+                        });
+
+                        this.recipe.ingredients = ingredientsList;
+
+                        //llenar el arreglo de instrucciones
+                        let analyzedInstructions = item.analyzedInstructions[0].steps;
+                        let instructionsList = [];
+
+                        analyzedInstructions.forEach(element => {
+                            instructionsList.push(
+                                { instruction: element.step}
+                            )
+                        });
+
+                        this.recipe.instructions = instructionsList;
+                    }
+                )
+                .catch(
+                    error => console.log(error)
+            );
+            
             this.home = false;
             this.details = true;
         }

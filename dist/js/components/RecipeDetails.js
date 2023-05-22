@@ -17,8 +17,8 @@ app.component('recipe-details', {
             default: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam sint possimus vel suscipit exercitationem earum consequuntur reiciendis dolorem? Molestias adipisci facilis quos iste perspiciatis aliquam itaque magnam qui saepe.'
         },
         likes: {
-            type: String,
-            default: '10'
+            type: Number,
+            default: 10
         },
         category: {
             type: String,
@@ -33,8 +33,8 @@ app.component('recipe-details', {
             default: 'Media'
         },
         portions: {
-            type: String,
-            default: '6'
+            type: Number,
+            default: 1
         },
         prep_time: {
             type: String,
@@ -45,21 +45,21 @@ app.component('recipe-details', {
             default: '20'
         },
         total_time: {
-            type: String,
-            default: '40'
+            type: Number,
+            default: 40
         },
         ingredients: {
             type: Array,
             default: [
-                { ingredient: '<li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>1 taza de azúcar</li>' },
+                {ingredient: '1 taza de azúcar' },
                 {ingredient: '2 tazas de harina'},                
             ]
         },
         instructions: {
             type: Array,
             default: [
-                {instruction: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.A at quas nobis tenetur iusto unde eius illo doloremque quaerat! In animi delectus laboriosam autem.Voluptatibus id placeat omnis molestias doloribus.'},
-                {instruction: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.A at quas nobis tenetur iusto unde eius illo doloremque quaerat! In animi delectus laboriosam autem.Voluptatibus id placeat omnis molestias doloribus.' },
+                { instruction: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.A at quas nobis tenetur iusto unde eius illo doloremque quaerat! In animi delectus laboriosam autem.Voluptatibus id placeat omnis molestias doloribus.' },
+                { instruction: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.A at quas nobis tenetur iusto unde eius illo doloremque quaerat! In animi delectus laboriosam autem.Voluptatibus id placeat omnis molestias doloribus.' },               
             ]
         },        
     },
@@ -182,7 +182,7 @@ app.component('recipe-details', {
 
                 <ul class="list-group list-group-flush content-text">
                     
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>I taza de ...</li>
+                    <li v-for="(item) in ingredients" class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>{{ item.ingredient }}</li>
                     
                 </ul>
 
@@ -196,18 +196,8 @@ app.component('recipe-details', {
             <h3 class="fw-bold mb-4">Instrucciones de Preparación</h3>
             <div>
                 <ul class="list-group list-group-flush content-text">
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. A at quas nobis
-                        tenetur iusto unde eius illo
-                        doloremque quaerat! In animi delectus laboriosam autem. Voluptatibus id placeat omnis molestias
-                        doloribus.</li>
-                    <li class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. A at quas nobis
-                        tenetur iusto unde eius illo
-                        doloremque quaerat! In animi delectus laboriosam autem. Voluptatibus id placeat omnis molestias
-                        doloribus.</li>
+                    <li v-for="(item) in instructions" class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>{{ item.instruction }}</li>                    
                 </ul>
-
             </div>
         </div>`
 })

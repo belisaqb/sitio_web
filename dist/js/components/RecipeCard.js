@@ -12,8 +12,8 @@ app.component('recipe-card', {
             default: "Pancakes"
         },
         total_time: {
-            type: String,
-            default: "20"
+            type: Number,
+            default: 20
         },
         portions: {
             type: String,
