@@ -5,6 +5,12 @@ app.component('nav-bar',{
     methods: {
         onClickHome(){
              this.$emit('go-home');
+        },
+        onClickLogin() {
+            this.$emit('go-login');
+        },
+        onClickRegister() {
+            this.$emit('go-register');
         }  
     },
     template:
@@ -41,10 +47,10 @@ app.component('nav-bar',{
                         </form>
                     </li>
                     <li class="nav-item me-2 mt-3 mt-sm-0">
-                        <a class="btn-secondary-light nav-link fw-bold " href="register.html">Registrarse</a>
+                        <a class="btn-secondary-light nav-link fw-bold" v-on:click="onClickRegister" href="#">Registrarse</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="btn-light nav-link me-2 fw-bold " href="login.html">Iniciar Sesión</a>
+                        <a class="btn-light nav-link me-2 fw-bold" v-on:click="onClickLogin" href="#">Iniciar Sesión</a>
                     </li>
 
                 </ul>

@@ -86,7 +86,6 @@
             <recipe-details :name="recipe.name" :image="recipe.image"
             :total_time="recipe.total_time" :level="recipe.level"
             ></recipe-details>
-
         </div>        
         
 
@@ -98,7 +97,7 @@
         
                 <div class="main-carousel mb-3 " data-flickity='{ "cellAlign": "left", "contain": true }'>
         
-                    <div class="carousel-cell me-3 mb-3 col-lg-3">
+                    <div v-for="(item) in recipes" class="carousel-cell me-3 mb-3 col-lg-3">
                         <recipe-card></recipe-card>
                     </div>
         

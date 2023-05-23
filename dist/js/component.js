@@ -4,7 +4,11 @@ const app = Vue.createApp({
 
             home: true,
             details: false,
-            profile: true,
+            profile: false,
+            forms: false,
+            login: false,
+            register: false,
+            forgotPassword: false,
 
             log: console.log("works"),
             recipes: [
@@ -84,12 +88,7 @@ const app = Vue.createApp({
                 error => console.log(error)
             );
     },
-    methods: {
-        onClickGoHome(){
-            this.home = true;
-            this.details = false;
-            this.profile = true;
-        },
+    methods: {        
         onClickRecipeDetails(index) {
             // console.log("id:" + index);
 
@@ -185,6 +184,45 @@ const app = Vue.createApp({
             });
 
             console.log(this.saved);
-        }
+        },
+        onClickGoHome() {
+            this.home = true;
+            this.details = false;
+            this.profile = false;
+            this.forms = false;
+        },
+        onClickGoProfile() {
+            this.home = false;
+            this.details = false;
+            this.profile = true;
+            this.forms = false;
+        },
+        onClickGoForgotPassword() {
+            this.home = false;
+            this.details = false;
+            this.profile = false;
+            this.forms = true;
+            this.forgotPassword = true;
+            this.register = false;
+            this.login = false;
+        },
+        onClickGoLogin() {
+            this.home = false;
+            this.details = false;
+            this.profile = false;
+            this.forms = true;
+            this.forgotPassword = false;
+            this.register = false;
+            this.login = true;
+        },
+        onClickGoRegister() {
+            this.home = false;
+            this.details = false;
+            this.profile = false;
+            this.forms = true;
+            this.forgotPassword = false;
+            this.register = true;
+            this.login = false;
+        },
     }
 })

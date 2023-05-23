@@ -42,7 +42,7 @@
         <!--/////////////////////////////////Header////////////////////////////////////-->
         <header>
             <div>
-                <nav-bar v-on:go-home="onClickGoHome"></nav-bar>
+                <nav-bar v-if="!forms" v-on:go-home="onClickGoHome"v-on:go-login="onClickGoLogin" v-on:go-register="onClickGoRegister"></nav-bar>
             </div>
             
 
@@ -242,10 +242,32 @@
 
         <!--//////////////////////////////////////////Perfil/////////////////////////////////////////-->
         
+        <!--//////////////////////////////////////////Forms/////////////////////////////////////////-->
+        <div v-if="forms" class="container-fluid p-0 m-0">
+        
+            <div class="row">
+                <div class="col img-container">
+                    <!-- <img src="./imgs/oranges.jpg" class="w-75" alt="Login"> -->
+                </div>
+                
+                <div class="col mb-5">
+                    <login v-if="login" v-on:go-forgot-password="onClickGoForgotPassword" v-on:go-profile="onClickGoProfile" v-on:go-register="onClickGoRegister" ></login>
+                    <register v-if="register" v-on:go-profile="onClickGoProfile" v-on:go-login="onClickGoLogin"></register>
+                    <forgot-password v-if="forgotPassword" v-on:go-login="onClickGoLogin"></forgot-password>
+                </div>
+                
+        
+            </div>
+        
+        
+        </div>
+
+        <!--//////////////////////////////////////////Forms/////////////////////////////////////////-->
+
 
 
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
-        <footer-info v-on:go-home="onClickGoHome"></footer-info>
+        <footer-info v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin" v-on:go-register="onClickGoRegister"></footer-info>
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
 
     </section>
@@ -268,6 +290,9 @@
     <script src="./js/components/Footer.js"></script>
     <script src="./js/components/RecipeDetails.js"></script>
     <script src="./js/components/Profile.js"></script>
+    <script src="./js/components/Login.js"></script>
+    <script src="./js/components/Register.js"></script>
+    <script src="./js/components/ForgotPassword.js"></script>
 
     <!-- montar la app -->
     <script>

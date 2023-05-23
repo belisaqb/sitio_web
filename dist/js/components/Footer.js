@@ -5,6 +5,12 @@ app.component('footer-info', {
     methods: {
         onClickHome() {
             this.$emit('go-home');
+        },
+        onClickLogin() {
+            this.$emit('go-login');
+        },
+        onClickRegister() {
+            this.$emit('go-register');
         }
     },
     template:
@@ -37,8 +43,8 @@ app.component('footer-info', {
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 my-4">
-                    <a class="btn-secondary-light nav-link fw-bold mb-4 me-3" href="register.html">Registrarse</a>
-                    <a class="btn-light nav-link me-2 fw-bold" href="login.html">Iniciar Sesión</a>
+                    <a class="btn-secondary-light nav-link fw-bold mb-4 me-3" v-on:click="onClickRegister" href="#">Registrarse</a>
+                    <a class="btn-light nav-link me-2 fw-bold" v-on:click="onClickLogin" href="#">Iniciar Sesión</a>
                 </div>
             </div>
             <div class="border-top py-4">
