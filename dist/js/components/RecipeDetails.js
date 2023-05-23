@@ -1,5 +1,8 @@
 app.component('recipe-details', {
     props: {
+        id: {
+            type: Number
+        },
         name: {
             type: String,
             default: 'Nombre de la Receta'
@@ -63,6 +66,12 @@ app.component('recipe-details', {
             ]
         },        
     },
+    methods: {
+        onClickSaveRecipe() {
+            console.log("ID: " + this.id);
+            this.$emit('save-recipe', this.id);
+        }
+    },
     template:
     /*html*/
     `<div class="container my-4">
@@ -74,8 +83,7 @@ app.component('recipe-details', {
                         <p class="horizontal-line mt-4 mb-3"></p>
                         <p class="content-text">{{ description }}</p>
                         <div class="row d-flex py-3">
-                            <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i
-                                        class="icon-link fa-solid fa-bookmark"></i></a>
+                            <div class="col-1"> <i v-on:click="onClickSaveRecipe" class="icon-link fa-solid fa-bookmark"></i>
                             </div>
                             <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i
                                         class="icon-link fa-solid fa-share"></i></a>

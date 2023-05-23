@@ -2,6 +2,11 @@ app.component('footer-info', {
     props: {
         
     },
+    methods: {
+        onClickHome() {
+            this.$emit('go-home');
+        }
+    },
     template:
     /*html*/
     `<div class="container-fluid d-flex pt-5 pb-0 footer-bg">
@@ -12,10 +17,10 @@ app.component('footer-info', {
                     <img src="./imgs/white-logo.webp" alt="Logo">
                 </div>
                 <div class="col-lg-3 col-sm-6 my-4">
-                    <h5 class="fw-bold mb-3"><a href="#" class="footer-link">Inicio</a></h5>
+                    <h5 class="fw-bold mb-3"><a v-on:click="onClickHome" href="#" class="footer-link">Inicio</a></h5>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><a href="#" class="footer-link">Destacadas</a></li>
-                        <li class="mb-3"><a href="#" class="footer-link">Recetas</a></li>
+                        <li class="mb-3"><a v-on:click="onClickHome" href="#highlighted" class="footer-link">Destacadas</a></li>
+                        <li class="mb-3"><a v-on:click="onClickHome" href="#recipes" class="footer-link">Recetas</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 my-4">

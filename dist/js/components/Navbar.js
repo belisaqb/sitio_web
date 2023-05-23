@@ -2,6 +2,11 @@ app.component('nav-bar',{
     props: {
         
     },
+    methods: {
+        onClickHome(){
+             this.$emit('go-home');
+        }  
+    },
     template:
     /*html*/
     `<nav class="navbar navbar-expand-lg blue-container py-2">
@@ -19,13 +24,13 @@ app.component('nav-bar',{
             <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-nav-scroll gap-2">
                     <li class="nav-item d-flex me-2 mt-3 mt-sm-0">
-                        <a class="nav-link align-self-center fw-bold  text-light" href="index.html">Inicio</a>
+                        <a class="nav-link align-self-center fw-bold text-light" href="#" v-on:click="onClickHome" >Inicio</a>
                     </li>
                     <li class="nav-item d-flex me-2">
-                        <a class="nav-link align-self-center fw-bold  text-light" href="index.html#highlighted">Destacadas</a>
+                        <a class="nav-link align-self-center fw-bold  text-light" v-on:click="onClickHome" href="#highlighted">Destacadas</a>
                     </li>
                     <li class="nav-item d-flex me-5">
-                        <a class="nav-link align-self-center fw-bold text-light" href="index.html#recipes">Recetas</a>
+                        <a class="nav-link align-self-center fw-bold text-light" v-on:click="onClickHome" href="#recipes">Recetas</a>
                     </li>
                     <li class="nav-item d-flex me-5">
                         <form class="d-flex col-sm">

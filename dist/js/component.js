@@ -4,7 +4,7 @@ const app = Vue.createApp({
 
             home: true,
             details: false,
-            profile: false,
+            profile: true,
 
             log: console.log("works"),
             recipes: [
@@ -34,6 +34,7 @@ const app = Vue.createApp({
                 { id: 13, name: "drink" },
                 //Alt+shift+direccional abajo
             ],
+            saved: [],
             recipe: {}
         }
     },
@@ -46,27 +47,27 @@ const app = Vue.createApp({
         })
             .then(
                 (response) => {
-                    console.log(response);
+                    //console.log(response);
 
                     let items = response.data.results;
-                    console.log(items);
+                    //console.log(items);
 
                     this.recipes = [];
                     let time = 0;
 
                     items.forEach(element => {
-                        axios({
-                            method: 'get',
-                            url: 'https://api.spoonacular.com/recipes/' + element.id + '/information?includeNutrition=false&apiKey=a48c522aaf304b2386ce1d225f99b014'
-                        })
-                        .then(
-                            (response) => {
-                                console.log(response.data.readyInMinutes);
+                        // axios({
+                        //     method: 'get',
+                        //     url: 'https://api.spoonacular.com/recipes/' + element.id + '/information?includeNutrition=false&apiKey=a48c522aaf304b2386ce1d225f99b014'
+                        // })
+                        // .then(
+                        //     (response) => {
+                        //         console.log(response.data.readyInMinutes);
 
-                                time = response.data.readyInMinutes;
+                        //         time = response.data.readyInMinutes;
 
-                            }
-                        )
+                        //     }
+                        // )
                         this.recipes.push(
                             {
                                 id: element.id,
@@ -75,7 +76,7 @@ const app = Vue.createApp({
                                 total_time: time
                             }
                         )
-                                
+
                     });
                 }
             )
@@ -84,8 +85,13 @@ const app = Vue.createApp({
             );
     },
     methods: {
+        onClickGoHome(){
+            this.home = true;
+            this.details = false;
+            this.profile = true;
+        },
         onClickRecipeDetails(index) {
-            console.log("id:" + index);
+            // console.log("id:" + index);
 
             // let item = this.recipes[index-1];
 
@@ -98,7 +104,7 @@ const app = Vue.createApp({
             // this.recipe.total_time = item.time;
             // this.recipe.level = item.level;
 
-            
+
 
             //Carga de los detalles de la receta con el API
             axios({
@@ -107,7 +113,7 @@ const app = Vue.createApp({
             })
                 .then(
                     (response) => {
-                        console.log(response);
+                        //console.log(response);
 
                         let item = response.data;
 
@@ -127,7 +133,7 @@ const app = Vue.createApp({
 
                         item.extendedIngredients.forEach(element => {
                             ingredientsList.push(
-                                {ingredient: element.original}
+                                { ingredient: element.original }
                             )
                         });
 
@@ -139,7 +145,7 @@ const app = Vue.createApp({
 
                         analyzedInstructions.forEach(element => {
                             instructionsList.push(
-                                { instruction: element.step}
+                                { instruction: element.step }
                             )
                         });
 
@@ -148,10 +154,37 @@ const app = Vue.createApp({
                 )
                 .catch(
                     error => console.log(error)
-            );
-            
+                );
+
             this.home = false;
             this.details = true;
+        },
+        onClickSaveRecipe(id) {
+            console.log("En el component " + id);
+
+            // let savedRecipe = this.recipes.filter(function (item) {
+            //     return item.id === id;
+            // })
+            // console.log(savedRecipe);
+            
+
+            // this.saved.push(this.recipes.filter(function (item) {
+            //     return item.id === id;
+            // }));
+            this.recipes.forEach(element => {
+                if (element.id == id) {
+                    this.saved.push(
+                        {
+                            id: element.id,
+                            name: element.name,
+                            image: element.image,
+                            total_time: "20"
+                        }
+                    )
+                }
+            });
+
+            console.log(this.saved);
         }
     }
 })

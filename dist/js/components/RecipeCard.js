@@ -26,8 +26,8 @@ app.component('recipe-card', {
     },
     methods: {
         onClickRecipeDetails() {
-            console.log("View");
-            console.log("ID: " + this.index);
+            // console.log("View");
+            // console.log("ID: " + this.index);
             this.$emit('recipe-details', this.index);
         }
     },
