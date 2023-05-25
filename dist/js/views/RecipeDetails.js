@@ -75,83 +75,82 @@ app.component('recipe-details', {
     template:
     /*html*/
     `<div class="container my-4">
-            <div class="row d-flex">
-                <div class="col-lg-6 d-flex mx-auto px-4 my-4">
-                    <div class="align-self-center">
-                        <h2 class="display-6 fw-bold mb-3">{{ name }}</h2>
-                        <h4 class="fw-bold text-yellow fst-italic mb-3">{{ highlight }}</h4>
-                        <p class="horizontal-line mt-4 mb-3"></p>
-                        <p class="content-text">{{ description }}</p>
-                        <div class="row d-flex py-3">
-                            <div class="col-1"> <i v-on:click="onClickSaveRecipe" class="icon-link fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i
-                                        class="icon-link fa-solid fa-share"></i></a>
-                            </div>
-                            <div class="col-3"><a class="text-dark text-decoration-none" href="#"><i
-                                        class="icon-link fa-solid fa-thumbs-up me-3"></i>{{ likes }}</a>
-                            </div>
+        <div class="row d-flex">
+            <div class="col-lg-6 d-flex mx-auto px-4 my-4">
+                <div class="align-self-center">
+                    <h2 class="display-6 fw-bold mb-3">{{ name }}</h2>
+                    <h4 class="fw-bold text-yellow fst-italic mb-3">{{ highlight }}</h4>
+                    <p class="horizontal-line mt-4 mb-3"></p>
+                    <p class="content-text">{{ description }}</p>
+                    <div class="row d-flex py-3">
+                        <div class="col-1"> <i v-on:click="onClickSaveRecipe" class="icon-link fa-solid fa-bookmark"></i>
+                        </div>
+                        <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i
+                                    class="icon-link fa-solid fa-share"></i></a>
+                        </div>
+                        <div class="col-3"><a class="text-dark text-decoration-none" href="#"><i
+                                    class="icon-link fa-solid fa-thumbs-up me-3"></i>{{ likes }}</a>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-lg-6 mx-auto flex-grow-1 px-4 my-4">
-                    <img class="img-fluid" :src="image" alt="name">
                 </div>
 
             </div>
-
-        </div>
-
-
-
-
-
-        <!--///////////////////////////Badges///////////////////////////////////-->
-        <div class="container my-5">
-            <div class="row gap-3 mx-0 mx-sm-2">
-                <div class="col-sm-6 col-md-6 col-lg badge">
-                    <a class="d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
-                            <div class="circle mx-auto d-flex justify-content-center">
-                                <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Categoría:</p>
-                            <h5 class="fw-bold mb-0">{{ category }}</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg badge">
-                    <a class=" d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
-                            <div class="circle mx-auto d-flex justify-content-center">
-                                <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Ocasión:</p>
-                            <h5 class="fw-bold mb-0">{{ occasion }}</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg badge">
-                    <a class=" d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
-                            <div class="circle mx-auto d-flex justify-content-center">
-                                <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Dificultad:</p>
-                            <h5 class="fw-bold mb-0">{{ level }}</h5>
-                        </div>
-                    </a>
-                </div>
-
+            <div class="col-lg-6 mx-auto flex-grow-1 px-4 my-4">
+                <img class="img-fluid" :src="image" alt="name">
             </div>
+
         </div>
+    </div>
+
+
+
+
+
+    <!--///////////////////////////Badges///////////////////////////////////-->
+    <div class="container my-5">
+        <div class="row gap-3 mx-0 mx-sm-2">
+            <div class="col-sm-6 col-md-6 col-lg badge">
+                <a class="d-flex m-1 px-5 py-3 unlink" href="#">
+                    <div class="py-2">
+                        <div class="circle mx-auto d-flex justify-content-center">
+                            <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
+                        </div>
+                    </div>
+                    <div class="ms-4 py-2 text-start mx-auto align-self-center">
+                        <p class="mb-2 fw-light aux-text small">Categoría:</p>
+                        <h5 class="fw-bold mb-0">{{ category }}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg badge">
+                <a class=" d-flex m-1 px-5 py-3 unlink" href="#">
+                    <div class="py-2">
+                        <div class="circle mx-auto d-flex justify-content-center">
+                            <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
+                        </div>
+                    </div>
+                    <div class="ms-4 py-2 text-start mx-auto align-self-center">
+                        <p class="mb-2 fw-light aux-text small">Ocasión:</p>
+                        <h5 class="fw-bold mb-0">{{ occasion }}</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg badge">
+                <a class=" d-flex m-1 px-5 py-3 unlink" href="#">
+                    <div class="py-2">
+                        <div class="circle mx-auto d-flex justify-content-center">
+                            <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
+                        </div>
+                    </div>
+                    <div class="ms-4 py-2 text-start mx-auto align-self-center">
+                        <p class="mb-2 fw-light aux-text small">Dificultad:</p>
+                        <h5 class="fw-bold mb-0">{{ level }}</h5>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
 
 
         <!--///////////////////////////Detalles///////////////////////////////////-->
