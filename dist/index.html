@@ -34,6 +34,9 @@
     <!--Flickity-->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
+    <!-- Required Core Stylesheet -->
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+
     <title>Become the Chef</title>
 </head>
 
@@ -42,9 +45,10 @@
         <!--/////////////////////////////////Header////////////////////////////////////-->
         <header>
             <div>
-                <nav-bar v-if="!forms" v-on:go-home="onClickGoHome"v-on:go-login="onClickGoLogin" v-on:go-register="onClickGoRegister"></nav-bar>
+                <nav-bar v-if="!forms" v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin"
+                    v-on:go-register="onClickGoRegister"></nav-bar>
             </div>
-            
+
 
             <div v-if="home" class="container my-5">
                 <div class="row d-flex">
@@ -72,19 +76,36 @@
         <!--//////////////////////////////////////////Header///////////////////////////////////////////-->
 
 
-
-
         <!--/////////////////////////////////////////Destacadas///////////////////////////////////////////-->
         <div v-show="home" class="container-fluid blue-container py-5">
             <div id="highlighted" class="container my-4 text-center">
                 <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas destacadas</h1>
-                
-                <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
+
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li v-for="(item) in recipes" class="glide__slide">
+                                <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
+                                    :total_time="item.total_time"
+                                    v-on:recipe-details="onClickRecipeDetails"></recipe-card>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glide__arrows mt-4" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                                class="icon-link fa-solid fa-circle-chevron-left"></i></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                                class="icon-link fa-solid fa-circle-chevron-right me-1"></i></button>
+                    </div>
+                </div>
+
+
+                <!-- <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
                     <div v-for="(item) in recipes" class="carousel-cell mb-3 col-lg-3">
                         <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
                             :total_time="item.total_time" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -187,13 +208,14 @@
 
         <!--//////////////////////////////////////////Detalle de Receta/////////////////////////////////////////-->
         <div class="m-0 p-0" v-show="details">
-            <div>
-                <recipe-details :id="recipe.id" :name="recipe.name" :image="recipe.image" :description="recipe.description"
-                    :likes="recipe.likes" :category="recipe.category" :occasion="recipe.occasion" :level="recipe.level"
-                    :portions="recipe.portions" :total_time="recipe.total_time" :ingredients="recipe.ingredients"
-                    :instructions="recipe.instructions" v-on:save-recipe="onClickSaveRecipe"></recipe-details>
-            </div>
-           
+
+            <recipe-details :id="recipe.id" :name="recipe.name" :image="recipe.image" :description="recipe.description"
+                :likes="recipe.likes" :category="recipe.category" :occasion="recipe.occasion" :level="recipe.level"
+                :portions="recipe.portions" :total_time="recipe.total_time" :ingredients="recipe.ingredients"
+                :instructions="recipe.instructions" v-on:save-recipe="onClickSaveRecipe"
+                v-on:like-recipe="onClickLikeRecipe"></recipe-details>
+
+
 
 
             <!--////////////////////////////Recetas Relacionadas/////////////////////////////////-->
@@ -202,14 +224,44 @@
                     <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas Relacionadas</h1>
 
 
-                    <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
+                    <div class="row">
+                        <div class="my-5">
+                            <div class="row mx-auto gy-5">
+                                <div v-for="(item) in recipes" class="col-sm-12 col-lg-3 col-md-6">
+                                    <recipe-card :index="item.id" :image="item.image" :name="item.name"
+                                        :time="item.total_time" :level="item.level"
+                                        v-on:recipe-details="onClickRecipeDetails"></recipe-card>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- <div class="glide-related">
+                        <div class="glide__track" data-glide-el="track">
+                            <ul class="glide__slides">
+                                <li v-for="(item) in recipes" class="glide__slide">
+                                    <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
+                                        :total_time="item.total_time" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="glide__arrows" data-glide-el="controls">
+                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
 
                         <div v-for="(item) in recipes" class="carousel-cell me-3 mb-3 col-lg-3">
                             <recipe-card :index="item.id" :image="item.image" :name="item.name" :time="item.total_time"
                                 :level="item.level" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -225,44 +277,47 @@
             <!--/////////////////////////////////Info////////////////////////////////////-->
 
             <!--//////////////////////////////////////////Coleccion de Recetas/////////////////////////////////////////-->
-            <section class="container">            
+            <section class="container">
                 <h2 class="mt-5 text-center fw-bold fst-italic display-5">Tus Recetas Coleccionadas</h2>
                 <div class="row">
                     <div class="my-5">
                         <div class="row mx-auto gy-5">
                             <div v-for="(item) in saved" class="col-sm-12 col-lg-3 col-md-6">
-                                <recipe-card :index="item.id" :image="item.image" :name="item.name" :time="item.total_time"
-                                :level="item.level" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
-                            </div>                            
+                                <recipe-card :index="item.id" :image="item.image" :name="item.name"
+                                    :time="item.total_time" :level="item.level"
+                                    v-on:recipe-details="onClickRecipeDetails"></recipe-card>
+                            </div>
                         </div>
-                    </div>            
-                </div>           
-                
+                    </div>
+                </div>
+
             </section>
             <!--//////////////////////////////////////////Coleccion de Recetas/////////////////////////////////////////-->
 
         </div>
 
         <!--//////////////////////////////////////////Perfil/////////////////////////////////////////-->
-        
+
         <!--//////////////////////////////////////////Forms/////////////////////////////////////////-->
         <div v-if="forms" class="container-fluid p-0 m-0">
-        
+
             <div class="row">
                 <div class="col img-container">
                     <!-- <img src="./imgs/oranges.jpg" class="w-75" alt="Login"> -->
                 </div>
-                
+
                 <div class="col mb-5">
-                    <login v-if="login" v-on:go-forgot-password="onClickGoForgotPassword" v-on:go-profile="onClickGoProfile" v-on:go-register="onClickGoRegister" ></login>
-                    <register v-if="register" v-on:go-profile="onClickGoProfile" v-on:go-login="onClickGoLogin"></register>
+                    <login v-if="login" v-on:go-forgot-password="onClickGoForgotPassword"
+                        v-on:go-profile="onClickGoProfile" v-on:go-register="onClickGoRegister"></login>
+                    <register v-if="register" v-on:go-profile="onClickGoProfile" v-on:go-login="onClickGoLogin">
+                    </register>
                     <forgot-password v-if="forgotPassword" v-on:go-login="onClickGoLogin"></forgot-password>
                 </div>
-                
-        
+
+
             </div>
-        
-        
+
+
         </div>
 
         <!--//////////////////////////////////////////Forms/////////////////////////////////////////-->
@@ -270,16 +325,13 @@
 
 
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
-        <footer-info v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin" v-on:go-register="onClickGoRegister"></footer-info>
+        <footer-info v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin"
+            v-on:go-register="onClickGoRegister"></footer-info>
         <!--//////////////////////////////////////////FOOTER/////////////////////////////////////////-->
 
     </section>
 
-    <!-- Scripts -->
-
-    <!-- Flickity -->
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
+    <!--//////////////////// Scripts ////////////////////////-->
 
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -308,14 +360,34 @@
         const mountedApp = app.mount("#app");
     </script>
 
+    <!-- Glide -->
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script>
+        const config = {
+            //type: 'carousel',
+            perView: 4,
+            breakpoints: {
+                1080: {
+                    perView: 3
+                },
+                480: {
+                    perView: 1.2
+                }
+            }
+        }
+        new Glide('.glide', config).mount()
+        //new Glide('.glide-related', config).mount()
+    </script>
 
+    <!-- Flickity -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    
+
 
 </body>
 
