@@ -356,6 +356,11 @@ body {
   text-decoration: none;
 }
 
+.arrow-link-light {
+  color: hsl(0deg, 0%, 100%);
+  text-decoration: none;
+}
+
 .arrow-down {
   -webkit-transform: scale(3);
           transform: scale(3);

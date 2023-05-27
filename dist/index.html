@@ -48,6 +48,7 @@
                 <nav-bar v-if="!forms" v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin"
                     v-on:go-register="onClickGoRegister"></nav-bar>
             </div>
+            
 
 
             <div v-if="home" class="container my-5">
@@ -79,23 +80,27 @@
         <!--/////////////////////////////////////////Destacadas///////////////////////////////////////////-->
         <div v-show="home" class="container-fluid blue-container py-5">
             <div id="highlighted" class="container my-4 text-center">
-                <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas destacadas</h1>
+                <h2 class="mx-auto mb-5 display-5 fw-bold fst-italic">Recetas destacadas</h2>
 
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            <li v-for="(item) in recipes" class="glide__slide">
+                            <li v-for="(item) in featuredRecipes" class="glide__slide">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
-                                    :total_time="item.total_time"
+                                    :total_time="item.total_time" :portions="item.servings"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                             </li>
                         </ul>
                     </div>
-                    <div class="glide__arrows mt-4" data-glide-el="controls">
-                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i
-                                class="icon-link fa-solid fa-circle-chevron-left"></i></button>
-                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i
-                                class="icon-link fa-solid fa-circle-chevron-right me-1"></i></button>
+                    <div class="glide__arrows mt-4 d-inline-flex gap-4" data-glide-el="controls">
+                        <div class="align-self-center lead glide__arrow glide__arrow--left" data-glide-dir="<<"><i
+                                class="arrow-link-light icon-link fa-solid fa-angles-left"></i></div>
+                        <div class="display-6 glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                                class="arrow-link-light icon-link fa-solid fa-circle-chevron-left"></i></div>
+                        <div class="display-6 glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                                class="arrow-link-light icon-link fa-solid fa-circle-chevron-right"></i></div>
+                        <div class="align-self-center lead glide__arrow glide__arrow--left" data-glide-dir=">>"><i
+                                class="arrow-link-light icon-link fa-solid fa-angles-right"></i></div>
                     </div>
                 </div>
 
@@ -121,8 +126,8 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-12 mt-5">
                     <div class="mb-4">
-                        <form class="d-flex col-sm">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex col-sm" v-on:submit.prevent="doSearch">
+                            <input v-model="search" class="form-control me-2" type="search" placeholder="Search">
                             <button class="btn-dark" type="submit"><i
                                     class="align-self-center fa-solid fa-magnifying-glass"></i></button>
                         </form>
@@ -131,9 +136,22 @@
 
                     <div class="accordion" id="accordionPanelsStayOpenExample">
 
-                        <accordion></accordion>
-                        <accordion></accordion>
-                        <accordion></accordion>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="fw-bold lead text-dark accordion-button accordion-bg" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne">
+                                    Categorías
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li v-for="(item) in categories" class="list-group-item"><a class="list-link text-link" href="#">{{ item.name }}</a>
+                                        </li>                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
@@ -194,7 +212,7 @@
                         <div class="row mx-auto gy-5">
                             <div v-for="(item, index) in recipes" class="col col-sm-12 col-lg-4 col-md-6 text-start">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name"
-                                    :time="item.total_time" :level="item.level"
+                                    :total_time="item.total_time" :level="item.level" :portions="item.servings"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                             </div>
                         </div>
@@ -344,7 +362,6 @@
 
     <!-- carga de components -->
     <script src="./js/components/RecipeCard.js"></script>
-    <script src="./js/components/Accordion.js"></script>
     <script src="./js/components/Navbar.js"></script>
     <script src="./js/components/Footer.js"></script>
 
@@ -369,6 +386,9 @@
             breakpoints: {
                 1080: {
                     perView: 3
+                },
+                900:{
+                    perView: 2
                 },
                 480: {
                     perView: 1.2

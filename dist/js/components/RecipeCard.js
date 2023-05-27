@@ -16,8 +16,8 @@ app.component('recipe-card', {
             default: 20
         },
         portions: {
-            type: String,
-            default: "6"
+            type: Number,
+            default: 6
         },
         level: {
             type: String,
@@ -49,7 +49,7 @@ app.component('recipe-card', {
             </li>
             <li class="card-text mb-2">{{ level }}</li>
         </ul>
-        <a class="d-flex btn-dark justify-content-center mx-3" href="#" v-on:click="onClickRecipeDetails(index)" >
+        <a class="d-flex btn-dark justify-content-center mx-3" href="#" v-on:click="onClickRecipeDetails()" >
             <div class="fw-bold px-5">Ver más</div>
         </a>
     </div>`

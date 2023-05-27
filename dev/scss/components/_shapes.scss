@@ -32,6 +32,11 @@
     text-decoration: none;
 }
 
+.arrow-link-light {
+    color: vars.$clr-white;
+    text-decoration: none;
+}
+
 .arrow-down{
     transform: scale(3);
     color: vars.$clr-black;

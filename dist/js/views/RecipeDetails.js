@@ -67,11 +67,10 @@ app.component('recipe-details', {
         },        
     },
     beforeMount() {
-        this.votes = this.likes;
     }, 
     data() {
         return {
-            votes: 0
+            
         }
     },
     methods: {
@@ -80,8 +79,7 @@ app.component('recipe-details', {
             this.$emit('save-recipe', this.id);
         },
         onClickLike() {
-            this.$emit('like-recipe', this.id);    
-            //this.votes++;
+            this.$emit('like-recipe', this.id);  
         }
     },
     template:
