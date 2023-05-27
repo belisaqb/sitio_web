@@ -85,7 +85,7 @@
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            <li v-for="(item) in featuredRecipes" class="glide__slide">
+                            <li v-for="(item) in recipes" class="glide__slide">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
                                     :total_time="item.total_time" :portions="item.servings"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
@@ -93,13 +93,13 @@
                         </ul>
                     </div>
                     <div class="glide__arrows mt-4 d-inline-flex gap-4" data-glide-el="controls">
-                        <div class="align-self-center lead glide__arrow glide__arrow--left" data-glide-dir="<<"><i
+                        <div class="hvr-grow align-self-center lead glide__arrow glide__arrow--left" data-glide-dir="<<"><i
                                 class="arrow-link-light icon-link fa-solid fa-angles-left"></i></div>
-                        <div class="display-6 glide__arrow glide__arrow--left" data-glide-dir="<"><i
+                        <div class="hvr-grow display-6 glide__arrow glide__arrow--left" data-glide-dir="<"><i
                                 class="arrow-link-light icon-link fa-solid fa-circle-chevron-left"></i></div>
-                        <div class="display-6 glide__arrow glide__arrow--right" data-glide-dir=">"><i
+                        <div class="hvr-grow display-6 glide__arrow glide__arrow--right" data-glide-dir=">"><i
                                 class="arrow-link-light icon-link fa-solid fa-circle-chevron-right"></i></div>
-                        <div class="align-self-center lead glide__arrow glide__arrow--left" data-glide-dir=">>"><i
+                        <div class="hvr-grow align-self-center lead glide__arrow glide__arrow--left" data-glide-dir=">>"><i
                                 class="arrow-link-light icon-link fa-solid fa-angles-right"></i></div>
                     </div>
                 </div>
@@ -124,6 +124,7 @@
 
             <h2 id="recipes" class="mt-5 text-center fw-bold fst-italic display-5">Nuestras Recetas</h2>
             <div class="row">
+                
                 <div class="col-lg-3 col-sm-12 mt-5">
                     <div class="mb-4">
                         <form class="d-flex col-sm" v-on:submit.prevent="doSearch">
@@ -227,6 +228,7 @@
         <!--//////////////////////////////////////////Detalle de Receta/////////////////////////////////////////-->
         <div class="m-0 p-0" v-show="details">
 
+            <alert-popup v-if="alert" v-on:close-alert="onClickCloseAlert" :message="message" ></alert-popup>
             <recipe-details :id="recipe.id" :name="recipe.name" :image="recipe.image" :description="recipe.description"
                 :likes="recipe.likes" :category="recipe.category" :occasion="recipe.occasion" :level="recipe.level"
                 :portions="recipe.portions" :total_time="recipe.total_time" :ingredients="recipe.ingredients"
@@ -241,11 +243,11 @@
                 <div class="container my-4 text-center">
                     <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas Relacionadas</h1>
 
-
+                    
                     <div class="row">
                         <div class="my-5">
                             <div class="row mx-auto gy-5">
-                                <div v-for="(item) in recipes" class="col-sm-12 col-lg-3 col-md-6">
+                                <div v-for="(item) in recipes.slice(6)" class="col-sm-12 col-lg-3 col-md-6">
                                     <recipe-card :index="item.id" :image="item.image" :name="item.name"
                                         :time="item.total_time" :level="item.level"
                                         v-on:recipe-details="onClickRecipeDetails"></recipe-card>
@@ -299,10 +301,10 @@
                 <h2 class="mt-5 text-center fw-bold fst-italic display-5">Tus Recetas Coleccionadas</h2>
                 <div class="row">
                     <div class="my-5">
-                        <div class="row mx-auto gy-5">
+                        <div class="row mx-auto gy-5">                            
                             <div v-for="(item) in saved" class="col-sm-12 col-lg-3 col-md-6">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name"
-                                    :time="item.total_time" :level="item.level"
+                                    :total_time="item.total_time" :level="item.level" :portions="item.servings"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                             </div>
                         </div>
@@ -364,6 +366,7 @@
     <script src="./js/components/RecipeCard.js"></script>
     <script src="./js/components/Navbar.js"></script>
     <script src="./js/components/Footer.js"></script>
+    <script src="./js/components/Alert.js"></script>
 
     <!-- vistas -->
     <script src="./js/views/RecipeDetails.js"></script>
@@ -371,6 +374,8 @@
     <script src="./js/views/Login.js"></script>
     <script src="./js/views/Register.js"></script>
     <script src="./js/views/ForgotPassword.js"></script>
+    <script src="./js/views/AdminView.js"></script>
+    <script src="./js/views/RegisterRecipe.js"></script>
 
     <!-- montar la app -->
     <script>

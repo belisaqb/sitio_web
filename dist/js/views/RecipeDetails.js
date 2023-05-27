@@ -94,11 +94,11 @@ app.component('recipe-details', {
                         <p class="horizontal-line mt-4 mb-3"></p>
                         <p class="content-text">{{ description }}</p>
                         <div class="row d-flex py-3">
-                            <div class="col-1"> <i v-on:click="onClickSaveRecipe" class="icon-link fa-solid fa-bookmark"></i>
+                            <div class="col-1"> <i v-on:click="onClickSaveRecipe" class="hvr-grow icon-link fa-solid fa-bookmark"></i>
                             </div>
-                            <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i class="icon-link fa-solid fa-share"></i></a>
+                            <div class="col-1"> <a class="text-dark text-decoration-none" href="#"><i class="hvr-grow icon-link fa-solid fa-share"></i></a>
                             </div>
-                            <div class="col-3"><i v-on:click="onClickLike" class="icon-link fa-solid fa-thumbs-up me-3"></i>{{ likes }}
+                            <div class="col-3"><i v-on:click="onClickLike" class="hvr-grow icon-link fa-solid fa-thumbs-up me-3"></i>{{ likes }}
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ app.component('recipe-details', {
             <div class="row gap-3 mx-0 mx-sm-2">
                 <div class="col-sm-6 col-md-6 col-lg badge">
                     <a class="d-flex m-1 px-5 py-3 unlink" href="#">
-                        <div class="py-2">
+                        <div class=" py-2">
                             <div class="circle mx-auto d-flex justify-content-center">
                                 <i class="fa-solid fa-calendar-check align-self-center icon-badge"></i>
                             </div>
