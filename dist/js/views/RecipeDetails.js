@@ -126,7 +126,7 @@ app.component('recipe-details', {
                             </div>
                         </div>
                         <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Categoría:</p>
+                            <p class="mb-2 fw-light aux-text small">Category:</p>
                             <h5 class="fw-bold mb-0">{{ category }}</h5>
                         </div>
                     </a>
@@ -139,7 +139,7 @@ app.component('recipe-details', {
                             </div>
                         </div>
                         <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Ocasión:</p>
+                            <p class="mb-2 fw-light aux-text small">Occasion:</p>
                             <h5 class="fw-bold mb-0">{{ occasion }}</h5>
                         </div>
                     </a>
@@ -152,7 +152,7 @@ app.component('recipe-details', {
                             </div>
                         </div>
                         <div class="ms-4 py-2 text-start mx-auto align-self-center">
-                            <p class="mb-2 fw-light aux-text small">Dificultad:</p>
+                            <p class="mb-2 fw-light aux-text small">Level:</p>
                             <h5 class="fw-bold mb-0">{{ level }}</h5>
                         </div>
                     </a>
@@ -167,17 +167,17 @@ app.component('recipe-details', {
         <div class="container my-5">
             <div class="row blue-badge py-5 mx-3 mx-sm-0 ">
                 <div class="col-0 col-sm text-center">
-                    <p class="mb-2 fw-light aux-text small">Porciones:</p>
+                    <p class="mb-2 fw-light aux-text small">Servings:</p>
                     <h4 class="fw-bold mb-0">{{ portions }}</h4>
                 </div>
                 <p class="vertical-line"></p>
                 <div class="col-0 col-sm text-center mt-5 mt-sm-0">
-                    <p class="mb-2 fw-light aux-text small">Preparación:</p>
+                    <p class="mb-2 fw-light aux-text small">Preparation:</p>
                     <h4 class="fw-bold mb-0">{{ prep_time }} min</h4>
                 </div>
                 <p class="vertical-line"></p>
                 <div class="col-0 col-sm text-center mt-5 mt-sm-0">
-                    <p class="mb-2 fw-light aux-text small">Cocción:</p>
+                    <p class="mb-2 fw-light aux-text small">Cooking:</p>
                     <h4 class="fw-bold mb-0">{{ cook_time }} min</h4>
                 </div>
                 <p class="vertical-line"></p>
@@ -193,7 +193,7 @@ app.component('recipe-details', {
         <!--///////////////////////////Ingredientes///////////////////////////////////-->
 
         <div class="container my-5">
-            <h3 class="fw-bold mb-4">Ingredientes</h3>
+            <h3 class="fw-bold mb-4">Ingredients</h3>
             <div>
 
                 <ul class="list-group list-group-flush content-text">
@@ -209,7 +209,7 @@ app.component('recipe-details', {
         <!--///////////////////////////Instrucciones de Preparación///////////////////////////////////-->
 
         <div class="container my-5 mb-5">
-            <h3 class="fw-bold mb-4">Instrucciones de Preparación</h3>
+            <h3 class="fw-bold mb-4">Instructions</h3>
             <div>
                 <ul class="list-group list-group-flush content-text">
                     <li v-for="(item) in instructions" class="list-group-item"><i class="fa-solid fa-circle bullet me-3"></i>{{ item.instruction }}</li>                    

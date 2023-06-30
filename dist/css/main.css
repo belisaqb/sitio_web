@@ -259,6 +259,10 @@ body {
   max-width: 18rem;
 }
 
+.img-card-recipe {
+  max-height: 18rem;
+}
+
 .badge {
   background: hsl(0deg, 0%, 80%);
   color: hsl(0deg, 0%, 0%);

@@ -23,14 +23,14 @@ app.component('footer-info', {
                     <img src="./imgs/white-logo.webp" alt="Logo">
                 </div>
                 <div class="col-lg-3 col-sm-6 my-4">
-                    <h5 class="fw-bold mb-3"><a v-on:click="onClickHome" href="#" class="footer-link">Inicio</a></h5>
+                    <h5 class="fw-bold mb-3"><a v-on:click="onClickHome" href="#" class="footer-link">Home</a></h5>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><a v-on:click="onClickHome" href="#highlighted" class="footer-link">Destacadas</a></li>
-                        <li class="mb-3"><a v-on:click="onClickHome" href="#recipes" class="footer-link">Recetas</a></li>
+                        <li class="mb-3"><a v-on:click="onClickHome" href="#highlighted" class="footer-link">Featured</a></li>
+                        <li class="mb-3"><a v-on:click="onClickHome" href="#recipes" class="footer-link">Recipes</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 my-4">
-                    <h5 class="fw-bold mb-3">Síguenos</h5>
+                    <h5 class="fw-bold mb-3">Follow</h5>
                     <ul class="list-unstyled">
                         <li class="mb-3"><a href="#" class="footer-link"><i
                                     class="fab fa-facebook me-2"></i>Facebook</a>
@@ -43,22 +43,20 @@ app.component('footer-info', {
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 my-4">
-                    <a class="btn-secondary-light nav-link fw-bold mb-4 me-3" v-on:click="onClickRegister" href="#">Registrarse</a>
-                    <a class="btn-light nav-link me-2 fw-bold" v-on:click="onClickLogin" href="#">Iniciar Sesión</a>
+                    <a class="btn-secondary-light nav-link fw-bold mb-4 me-3" v-on:click="onClickRegister" href="#">Sign Up</a>
+                    <a class="btn-light nav-link me-2 fw-bold" v-on:click="onClickLogin" href="#">Log In</a>
                 </div>
             </div>
             <div class="border-top py-4">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 content">
-                        <small>2022. Become the chef. Todos los derechos reservados</small>
+                        <small>2022. Become the chef. All rights reserved</small>
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <ul class="list-inline text-lg-end">
-                            <li class="list-inline-item me-3"><a href="#" class="footer-link"><small>Términos
-                                        y condiciones</small></a>
+                            <li class="list-inline-item me-3"><a href="#" class="footer-link"><small>Terms & Conditions</small></a>
                             </li>
-                            <li class="list-inline-item me-3"><a href="#" class="footer-link"><small>Aviso de
-                                        Privacidad</small></a></li>
+                            <li class="list-inline-item me-3"><a href="#" class="footer-link"><small>Privacy Policy</small></a></li>
                         </ul>
                     </div>
                 </div>

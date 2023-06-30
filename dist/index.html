@@ -48,15 +48,15 @@
                 <nav-bar v-if="!forms" v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin"
                     v-on:go-register="onClickGoRegister"></nav-bar>
             </div>
-            
+
 
 
             <div v-if="home" class="container my-5">
                 <div class="row d-flex">
                     <div class="col-lg-5 d-flex mx-auto px-4 my-4">
                         <div class="align-self-center">
-                            <h1 class="display-6 fw-bold mb-3">Las Mejores <span class="text-yellow">Recetas</span> en
-                                un solo lugar</h1>
+                            <h1 class="display-6 fw-bold mb-3">The Best <span class="text-yellow">Recipes</span> in one
+                                place</h1>
                             <p class="horizontal-line mt-4 mb-3"></p>
                             <p class="content-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
                                 sint dicta possimus vel suscipit exercitationem earum consequuntur reiciendis dolorem?
@@ -80,27 +80,28 @@
         <!--/////////////////////////////////////////Destacadas///////////////////////////////////////////-->
         <div v-show="home" class="container-fluid blue-container py-5">
             <div id="highlighted" class="container my-4 text-center">
-                <h2 class="mx-auto mb-5 display-5 fw-bold fst-italic">Recetas destacadas</h2>
+                <h2 class="mx-auto mb-5 display-5 fw-bold fst-italic">Featured Recipes</h2>
 
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            <li v-for="(item) in recipes" class="glide__slide">
+                            <li v-for="(item) in featuredRecipes" class="glide__slide">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
-                                    :total_time="item.total_time" :portions="item.servings"
+                                    :total_time="item.total_time" :portions="item.portions"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                             </li>
                         </ul>
                     </div>
                     <div class="glide__arrows mt-4 d-inline-flex gap-4" data-glide-el="controls">
-                        <div class="hvr-grow align-self-center lead glide__arrow glide__arrow--left" data-glide-dir="<<"><i
-                                class="arrow-link-light icon-link fa-solid fa-angles-left"></i></div>
+                        <div class="hvr-grow align-self-center lead glide__arrow glide__arrow--left"
+                            data-glide-dir="<<"><i class="arrow-link-light icon-link fa-solid fa-angles-left"></i></div>
                         <div class="hvr-grow display-6 glide__arrow glide__arrow--left" data-glide-dir="<"><i
                                 class="arrow-link-light icon-link fa-solid fa-circle-chevron-left"></i></div>
                         <div class="hvr-grow display-6 glide__arrow glide__arrow--right" data-glide-dir=">"><i
                                 class="arrow-link-light icon-link fa-solid fa-circle-chevron-right"></i></div>
-                        <div class="hvr-grow align-self-center lead glide__arrow glide__arrow--left" data-glide-dir=">>"><i
-                                class="arrow-link-light icon-link fa-solid fa-angles-right"></i></div>
+                        <div class="hvr-grow align-self-center lead glide__arrow glide__arrow--left"
+                            data-glide-dir=">>"><i class="arrow-link-light icon-link fa-solid fa-angles-right"></i>
+                        </div>
                     </div>
                 </div>
 
@@ -122,9 +123,9 @@
         <!--/////////////////////////////////////////Recetas//////////////////////////////////////////-->
         <section v-if="home" class="container">
 
-            <h2 id="recipes" class="mt-5 text-center fw-bold fst-italic display-5">Nuestras Recetas</h2>
+            <h2 id="recipes" class="mt-5 text-center fw-bold fst-italic display-5">Our Recipes</h2>
             <div class="row">
-                
+
                 <div class="col-lg-3 col-sm-12 mt-5">
                     <div class="mb-4">
                         <form class="d-flex col-sm" v-on:submit.prevent="doSearch">
@@ -139,16 +140,18 @@
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                <button class="fw-bold lead text-dark accordion-button accordion-bg" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#panelsStayOpen-collapseOne">
-                                    Categorías
+                                <button class="fw-bold lead text-dark accordion-button accordion-bg" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne">
+                                    Categories
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <ul class="list-group list-group-flush">
-                                        <li v-for="(item) in categories" class="list-group-item"><a class="list-link text-link" href="#">{{ item.name }}</a>
-                                        </li>                        
+                                        <li v-for="(item) in categories" class="list-group-item">
+                                            <filter-item :id="item.id" :label="item.label" :name="item.name"
+                                                v-on:search-filter="onClickSearchFilter"></filter-item>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -159,20 +162,17 @@
                                 <button class="fw-bold lead text-dark accordion-button collapsed accordion-bg"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
                                     aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                    Ocasiones
+                                    Occasions
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                                 aria-labelledby="panelsStayOpen-headingTwo">
                                 <div class="accordion-body">
                                     <ul class="list-group list-group-flush">
-
-                                        <li class="list-group-item"><a class="list-link text-link" href="#">Ocasión</a>
+                                        <li v-for="(item) in occasions" class="list-group-item">
+                                            <filter-item :id="item.id" :label="item.label" :name="item.name"
+                                                v-on:search-filter="onClickSearchFilter"></filter-item>
                                         </li>
-                                        <li class="list-group-item"><a class="list-link text-link" href="#">Ocasión</a>
-                                        </li>
-
-
                                     </ul>
                                 </div>
                             </div>
@@ -184,21 +184,17 @@
                                     type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                                     aria-controls="panelsStayOpen-collapseThree">
-                                    Complejidad
+                                    Levels
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                                 aria-labelledby="panelsStayOpen-headingThree">
                                 <div class="accordion-body">
                                     <ul class="list-group list-group-flush">
-
-                                        <li class="list-group-item"><a class="list-link text-link"
-                                                href="#">Dificultad</a>
+                                        <li v-for="(item) in levels" class="list-group-item">
+                                            <filter-item :id="item.id" :label="item.label" :name="item.name"
+                                                v-on:search-filter="onClickSearchFilter"></filter-item>
                                         </li>
-                                        <li class="list-group-item"><a class="list-link text-link"
-                                                href="#">Dificultad</a>
-                                        </li>
-
 
                                     </ul>
                                 </div>
@@ -228,7 +224,7 @@
         <!--//////////////////////////////////////////Detalle de Receta/////////////////////////////////////////-->
         <div class="m-0 p-0" v-show="details">
 
-            <alert-popup v-if="alert" v-on:close-alert="onClickCloseAlert" :message="message" ></alert-popup>
+            <alert-popup v-if="alert" v-on:close-alert="onClickCloseAlert" :message="message"></alert-popup>
             <recipe-details :id="recipe.id" :name="recipe.name" :image="recipe.image" :description="recipe.description"
                 :likes="recipe.likes" :category="recipe.category" :occasion="recipe.occasion" :level="recipe.level"
                 :portions="recipe.portions" :total_time="recipe.total_time" :ingredients="recipe.ingredients"
@@ -241,13 +237,13 @@
             <!--////////////////////////////Recetas Relacionadas/////////////////////////////////-->
             <div class="container-fluid blue-container py-5">
                 <div class="container my-4 text-center">
-                    <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Recetas Relacionadas</h1>
+                    <h1 class="mx-auto mb-5 display-4 fw-bold fst-italic">Related Recipes</h1>
 
-                    
+
                     <div class="row">
                         <div class="my-5">
                             <div class="row mx-auto gy-5">
-                                <div v-for="(item) in recipes.slice(6)" class="col-sm-12 col-lg-3 col-md-6">
+                                <div v-for="(item) in relatedRecipes" class="col-sm-12 col-lg-3 col-md-6">
                                     <recipe-card :index="item.id" :image="item.image" :name="item.name"
                                         :time="item.total_time" :level="item.level"
                                         v-on:recipe-details="onClickRecipeDetails"></recipe-card>
@@ -255,33 +251,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-                    <!-- <div class="glide-related">
-                        <div class="glide__track" data-glide-el="track">
-                            <ul class="glide__slides">
-                                <li v-for="(item) in recipes" class="glide__slide">
-                                    <recipe-card :index="item.id" :image="item.image" :name="item.name" :level="item.level"
-                                        :total_time="item.total_time" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="glide__arrows" data-glide-el="controls">
-                            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-                            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="carousel mb-3 " data-flickity='{ "wrapAround": true }'>
-
-                        <div v-for="(item) in recipes" class="carousel-cell me-3 mb-3 col-lg-3">
-                            <recipe-card :index="item.id" :image="item.image" :name="item.name" :time="item.total_time"
-                                :level="item.level" v-on:recipe-details="onClickRecipeDetails"></recipe-card>
-                        </div>
-
-                    </div> -->
 
                 </div>
 
@@ -301,10 +270,10 @@
                 <h2 class="mt-5 text-center fw-bold fst-italic display-5">Tus Recetas Coleccionadas</h2>
                 <div class="row">
                     <div class="my-5">
-                        <div class="row mx-auto gy-5">                            
+                        <div class="row mx-auto gy-5">
                             <div v-for="(item) in saved" class="col-sm-12 col-lg-3 col-md-6">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name"
-                                    :total_time="item.total_time" :level="item.level" :portions="item.servings"
+                                    :total_time="item.total_time" :level="item.level" :portions="item.portions"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                             </div>
                         </div>
@@ -367,6 +336,7 @@
     <script src="./js/components/Navbar.js"></script>
     <script src="./js/components/Footer.js"></script>
     <script src="./js/components/Alert.js"></script>
+    <script src="./js/components/Filter.js"></script>
 
     <!-- vistas -->
     <script src="./js/views/RecipeDetails.js"></script>
@@ -387,12 +357,12 @@
     <script>
         const config = {
             //type: 'carousel',
-            perView: 4,
+            perView: 5,
             breakpoints: {
                 1080: {
                     perView: 3
                 },
-                900:{
+                900: {
                     perView: 2
                 },
                 480: {

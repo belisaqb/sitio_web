@@ -4,7 +4,7 @@ app.component('nav-bar',{
     },
     methods: {
         onClickHome(){
-             this.$emit('go-home');
+            this.$emit('go-home');
         },
         onClickLogin() {
             this.$emit('go-login');
@@ -30,27 +30,19 @@ app.component('nav-bar',{
             <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-nav-scroll gap-2">
                     <li class="nav-item d-flex me-2 mt-3 mt-sm-0">
-                        <a class="nav-link align-self-center fw-bold text-light hvr-underline-from-left" href="#" v-on:click="onClickHome" >Inicio</a>
+                        <a class="nav-link align-self-center fw-bold text-light hvr-underline-from-left" href="index.html" v-on:click="onClickHome" >Home</a>
                     </li>
                     <li class="nav-item d-flex me-2">
-                        <a class="nav-link align-self-center fw-bold text-light hvr-underline-from-left" v-on:click="onClickHome" href="#highlighted">Destacadas</a>
+                        <a class="nav-link align-self-center fw-bold text-light hvr-underline-from-left" v-on:click="onClickHome" href="index.html#highlighted">Featured</a>
                     </li>
                     <li class="nav-item d-flex me-5">
-                        <a class="nav-link align-self-center fw-bold text-light hvr-underline-from-left" v-on:click="onClickHome" href="#recipes">Recetas</a>
-                    </li>
-                    <li class="nav-item d-flex me-5">
-                        <form class="d-flex col-sm">
-                            <input class="form-control me-2" type="search" placeholder="Search"
-                                aria-label="Search">
-                            <button class="btn-light" type="submit"><i
-                                    class="align-self-center fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </li>
+                        <a class="nav-link align-self-center fw-bold text-light hvr-underline-from-left" v-on:click="onClickHome" href="index.html#recipes">Recipes</a>
+                    </li>                    
                     <li class="nav-item me-2 mt-3 mt-sm-0">
-                        <a class="btn-secondary-light nav-link fw-bold" v-on:click="onClickRegister" href="#">Registrarse</a>
+                        <a class="btn-secondary-light nav-link fw-bold" v-on:click="onClickRegister" href="#">Sign Up</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="btn-light nav-link me-2 fw-bold" v-on:click="onClickLogin" href="#">Iniciar Sesión</a>
+                        <a class="btn-light nav-link me-2 fw-bold" v-on:click="onClickLogin" href="#">Log In</a>
                     </li>
 
                 </ul>

@@ -27,7 +27,7 @@ app.component('register', {
         <h1 class="fw-bold text-center mt-5">Registrarse</h1>
         <p class="text-center content-text">Te damos la bienvenida</p>
 
-        <form action="" method="post">
+        <form action="" method="post" v-on:submit.prevent="doRegister">
             <div class="row d-flex justify-content-center gap-3 mx-2">
                 <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
                     <label for="name" class="form-label fw-bold">Nombre</label>
