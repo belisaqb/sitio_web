@@ -3,9 +3,12 @@ app.component('profile', {
         name: {
             type: String,
             default: "Nombre"
-
         },
-        username: {
+        last_name: {
+            type: String,
+            default: "nombre de usuario"
+        },
+        country: {
             type: String,
             default: "nombre de usuario"
         },
@@ -23,9 +26,9 @@ app.component('profile', {
                         class="fa-regular fa-user align-self-center mx-auto display-1"></i></div>
             </div>
             <div class="col-md-8 align-self-center mt-5 mt-sm-0">
-                <h2 class="fw-bold display-6 ">{{ name }}</h2>
+                <h2 class="fw-bold display-6 ">{{ name }} {{last_name}}</h2>
                 <p class="horizontal-line my-3"></p>
-                <h5 class="fw-bold lead fst-italic">{{ username }}</h5>
+                <h5 class="fw-bold lead fst-italic">{{ country }}</h5>
                 <p class="">{{ email }}</p>
             </div>
         </div>

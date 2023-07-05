@@ -1,6 +1,6 @@
 body {
   font-family: "Lato";
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
 }
 
 .img-container {
@@ -8,7 +8,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
-  height: 700px;
+  height: 800px;
 }
 @media only screen and (max-width: 480px) {
   .img-container {
@@ -27,29 +27,29 @@ body {
 }
 
 .blue-container {
-  background: hsl(212deg, 91%, 13%);
-  color: hsl(0deg, 0%, 100%);
+  background: hsl(212, 91%, 13%);
+  color: hsl(0, 0%, 100%);
 }
 
 .text-light {
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
 }
 
 .text-dark {
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
 }
 
 .text-yellow {
-  color: hsl(34deg, 84%, 50%);
+  color: hsl(34, 84%, 50%);
 }
 
 .text-grey {
-  color: hsl(0deg, 0%, 32%);
+  color: hsl(0, 0%, 32%);
 }
 
 .content-text {
   font-family: "Noto Serif";
-  color: hsl(0deg, 0%, 32%);
+  color: hsl(0, 0%, 32%);
 }
 
 .aux-text {
@@ -59,13 +59,13 @@ body {
 .text-link {
   display: block;
   text-decoration: none;
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .text-link:hover {
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
   -webkit-transform: translate(0.5rem);
           transform: translate(0.5rem);
 }
@@ -73,37 +73,37 @@ body {
 .unlink {
   display: block;
   text-decoration: none;
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .unlink:hover {
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
 }
 
 .text-link-muted {
   display: block;
   text-decoration: none;
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0, 0%, 60%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   text-decoration: underline;
 }
 
 .text-link-muted:hover {
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
 }
 
 .btn-dark {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  background-color: hsl(34deg, 84%, 50%);
+  background-color: hsl(34, 84%, 50%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -118,8 +118,8 @@ body {
   background-color: transparent;
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -131,11 +131,11 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  background-color: hsl(34deg, 84%, 50%);
+  background-color: hsl(34, 84%, 50%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 100%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 100%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -150,8 +150,8 @@ body {
   background-color: transparent;
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 100%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 100%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -166,8 +166,8 @@ body {
   background-color: transparent;
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -179,11 +179,11 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  background-color: hsl(34deg, 84%, 50%);
+  background-color: hsl(34, 84%, 50%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -198,8 +198,8 @@ body {
   background-color: transparent;
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 100%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 100%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -211,11 +211,11 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  background-color: hsl(34deg, 84%, 50%);
+  background-color: hsl(34, 84%, 50%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 100%);
+  border-color: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 100%);
   text-decoration: none;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -224,51 +224,56 @@ body {
 }
 
 .icon-link {
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
 }
 
 .icon-link:hover {
-  color: hsl(34deg, 84%, 50%);
+  color: hsl(34, 84%, 50%);
 }
 
 .accordion-bg {
-  background: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
 }
 
 .accordion-bg:focus {
-  background: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
   border-color: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 .accordion-bg:not(.collapsed) {
-  background: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
 }
 
 .main-card {
-  background: hsl(0deg, 0%, 100%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(0deg, 0%, 80%);
+  border-color: hsl(0, 0%, 80%);
   word-wrap: break-word;
   max-width: 18rem;
+  min-height: 30.233rem;
+}
+
+.title-card {
+  min-height: 5rem;
 }
 
 .img-card-recipe {
-  max-height: 18rem;
+  height: 14rem;
 }
 
 .badge {
-  background: hsl(0deg, 0%, 80%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 0%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(0deg, 0%, 80%);
+  border-color: hsl(0, 0%, 80%);
   word-wrap: break-word;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -276,20 +281,20 @@ body {
 }
 
 .badge:hover {
-  background: hsl(34deg, 84%, 50%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(34, 84%, 50%);
+  color: hsl(0, 0%, 0%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(34deg, 84%, 50%);
+  border-color: hsl(34, 84%, 50%);
   word-wrap: break-word;
 }
 
 .profile-badge {
-  background: hsl(0deg, 0%, 92%);
-  color: hsl(0deg, 0%, 0%);
+  background: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 0%);
   border: solid;
   border-radius: 0.5rem;
-  border-color: hsl(0deg, 0%, 92%);
+  border-color: hsl(0, 0%, 92%);
   word-wrap: break-word;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -303,8 +308,8 @@ body {
 }
 
 .blue-badge {
-  background: hsl(212deg, 91%, 13%);
-  color: hsl(0deg, 0%, 100%);
+  background: hsl(212, 91%, 13%);
+  color: hsl(0, 0%, 100%);
   border-radius: 0.5rem;
 }
 @media only screen and (max-width: 480px) {
@@ -314,7 +319,7 @@ body {
 }
 
 .vertical-line {
-  border-left: 0.2rem solid hsl(34deg, 84%, 50%);
+  border-left: 0.2rem solid hsl(34, 84%, 50%);
   height: 3.75rem;
   width: 0.125rem;
   padding: 0;
@@ -327,7 +332,7 @@ body {
 }
 
 .horizontal-line {
-  border-top: 0.2rem solid hsl(34deg, 84%, 50%);
+  border-top: 0.2rem solid hsl(34, 84%, 50%);
   height: 0.125rem;
   width: 5rem;
   padding: 0;
@@ -337,14 +342,14 @@ body {
 .circle {
   width: 5rem;
   height: 5rem;
-  background: hsl(0deg, 0%, 92%);
+  background: hsl(0, 0%, 92%);
   border-radius: 50%;
 }
 
 .circle-profile {
   width: 12.5rem;
   height: 12.5rem;
-  background: hsl(0deg, 0%, 80%);
+  background: hsl(0, 0%, 80%);
   border-radius: 50%;
 }
 
@@ -356,27 +361,27 @@ body {
 .arrow-link {
   -webkit-transform: scale(1.9);
           transform: scale(1.9);
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
   text-decoration: none;
 }
 
 .arrow-link-light {
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
   text-decoration: none;
 }
 
 .arrow-down {
   -webkit-transform: scale(3);
           transform: scale(3);
-  color: hsl(0deg, 0%, 0%);
+  color: hsl(0, 0%, 0%);
   -webkit-transform: rotate(90);
           transform: rotate(90);
 }
 
 .form-bg {
-  background: hsl(0deg, 0%, 92%);
-  color: hsl(0deg, 0%, 32%);
-  border-color: hsl(0deg, 0%, 60%);
+  background: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 32%);
+  border-color: hsl(0, 0%, 60%);
 }
 
 .hvr-fade {
@@ -396,7 +401,7 @@ body {
 .hvr-fade:hover,
 .hvr-fade:focus,
 .hvr-fade:active {
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 /* Sweep To Top */
@@ -422,7 +427,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: hsl(198deg, 47%, 79%);
+  background: hsl(198, 47%, 79%);
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -webkit-transform-origin: 50% 100%;
@@ -484,7 +489,7 @@ body {
 .hvr-trim:before {
   content: "";
   position: absolute;
-  border: hsl(0deg, 0%, 100%) solid 4px;
+  border: hsl(0, 0%, 100%) solid 4px;
   top: 4px;
   left: 4px;
   right: 4px;
@@ -520,7 +525,7 @@ body {
   left: 0;
   right: 100%;
   bottom: 0;
-  background: hsl(34deg, 84%, 50%);
+  background: hsl(34, 84%, 50%);
   height: 4px;
   -webkit-transition-property: right;
   transition-property: right;
@@ -537,20 +542,20 @@ body {
 }
 
 .footer-bg {
-  background: hsl(0deg, 0%, 0%);
-  color: hsl(0deg, 0%, 100%);
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
 }
 
 .footer-link {
   display: block;
   text-decoration: none;
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0, 0%, 60%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .footer-link:hover {
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
   -webkit-transform: translate(0.5rem);
           transform: translate(0.5rem);
 }

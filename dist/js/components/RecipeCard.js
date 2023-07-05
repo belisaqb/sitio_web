@@ -39,9 +39,9 @@ app.component('recipe-card', {
         </div>
 
         <div class="card-body d-flex">
-            <h4 class="card-title p-3 fw-bold fst-italic">
+            <h5 class="card-title title-card p-3 fw-bold fst-italic">
                 {{ name }}
-            </h4>
+            </h5>
         </div>
         <ul class="list-unstyled ps-4 mb-3">
             <li class="card-text mb-2">{{ total_time }} mins</li>

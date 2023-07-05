@@ -1,18 +1,32 @@
 const app = Vue.createApp({
     data() {
         return {
+
+            /////////////VIEWS////////////////
+            view: 0,
             home: true,
             alert: false,
+            guest: true,
             details: false,
             profile: false,
             forms: false,
             login: false,
             register: false,
-            forgotPassword: false,
+            forgotPassword: false,            
+
+            //////////DATA FORMS/////
             search: null,
+            name: null,
+            last_name: null,
+            email: null,
+            username: null,
+            password: null, 
+            token: "",
             message: "",
 
             log: console.log("works"),
+
+            ///////Arrays/////////////
             recipes: [
                 { id: 1, image: "./images/recipes/sushi.jpg", name: "Sushi", category: "Lunch", total_time: 31, servings: 10, level: "Intermedio", likes: 20, ingredients: "300ml Sushi Rice, 100ml Rice wine, 2 tbs Caster Sugar, 3 tbs Mayonnaise, 1 tbs Rice wine, 1 tbs Soy Sauce1 Cucumber", instructions: "STEP 1 TO MAKE SUSHI ROLLS: Pat out some rice.Lay a nori sheet on the mat, shiny-side down.Dip your hands in the vinegared water, then pat handfuls of rice on top in a 1cm thick layer, leaving the furthest edge from you clear. STEP 2 Spread over some Japanese mayonnaise.Use a spoon to spread out a thin layer of mayonnaise down the middle of the rice. STEP 3 Add the filling.Get your child to top the mayonnaise with a line of their favourite fillings - here we've used tuna and cucumber. STEP 4 Roll it up.Lift the edge of the mat over the rice, applying a little pressure to keep everything in a tight roll. STEP 5 Stick down the sides like a stamp.When you get to the edge without any rice, brush with a little water and continue to roll into a tight roll. STEP 6 Wrap in cling film.Remove the mat and roll tightly in cling film before a grown-up cuts the sushi into thick slices, then unravel the cling film. STEP 7 TO MAKE PRESSED SUSHI: Layer over some smoked salmon.Line a loaf tin with cling film, then place a thin layer of smoked salmon inside on top of the cling film. STEP 8 Cover with rice and press down. Press about 3cm of rice over the fish, fold the cling film over and press down as much as you can, using another tin if you have one. STEP 9 Tip it out like a sandcastle.Turn block of sushi onto a chopping board.Get a grown-up to cut into fingers, then remove the cling film. STEP 10 TO MAKE SUSHI BALLS: Choose your topping.Get a small square of cling film and place a topping, like half a prawn or a small piece of smoked salmon, on it. Use damp hands to roll walnut-sized balls of rice and place on the topping. STEP 11 Make into tight balls. Bring the corners of the cling film together and tighten into balls by twisting it up, then unwrap and serve." },
                 { id: 2, image: "./images/recipes/fettuccine-alfredo.jpg", name: "Fettuccine Alfredo", category: "Dinner", total_time: 45, servings: 6, level: "Fácil", likes: 18, ingredients: "1 lb Fettuccine, 1/2 cup Heavy Cream, 1/2 cup Butter, 1/2 cup Parmesan, 2 tbsp Parsley, Black Pepper", instructions: "Cook pasta according to package instructions in a large pot of boiling water and salt. Add heavy cream and butter to a large skillet over medium heat until the cream bubbles and the butter melts. Whisk in parmesan and add seasoning (salt and black pepper). Let the sauce thicken slightly and then add the pasta and toss until coated in sauce. Garnish with parsley, and it's ready." },
@@ -44,8 +58,7 @@ const app = Vue.createApp({
             ],
             occasions: [],
             levels: [],
-            saved: [],
-            recipe: {},
+            saved: [],            
             featuredRecipes: [
                 { id: 1, image: "./images/recipes/sushi.jpg", name: "Sushi", category: "Lunch", total_time: 31, servings: 10, level: "Intermedio", likes: 20, ingredients: "300ml Sushi Rice, 100ml Rice wine, 2 tbs Caster Sugar, 3 tbs Mayonnaise, 1 tbs Rice wine, 1 tbs Soy Sauce1 Cucumber", instructions: "STEP 1 TO MAKE SUSHI ROLLS: Pat out some rice.Lay a nori sheet on the mat, shiny-side down.Dip your hands in the vinegared water, then pat handfuls of rice on top in a 1cm thick layer, leaving the furthest edge from you clear. STEP 2 Spread over some Japanese mayonnaise.Use a spoon to spread out a thin layer of mayonnaise down the middle of the rice. STEP 3 Add the filling.Get your child to top the mayonnaise with a line of their favourite fillings - here we've used tuna and cucumber. STEP 4 Roll it up.Lift the edge of the mat over the rice, applying a little pressure to keep everything in a tight roll. STEP 5 Stick down the sides like a stamp.When you get to the edge without any rice, brush with a little water and continue to roll into a tight roll. STEP 6 Wrap in cling film.Remove the mat and roll tightly in cling film before a grown-up cuts the sushi into thick slices, then unravel the cling film. STEP 7 TO MAKE PRESSED SUSHI: Layer over some smoked salmon.Line a loaf tin with cling film, then place a thin layer of smoked salmon inside on top of the cling film. STEP 8 Cover with rice and press down. Press about 3cm of rice over the fish, fold the cling film over and press down as much as you can, using another tin if you have one. STEP 9 Tip it out like a sandcastle.Turn block of sushi onto a chopping board.Get a grown-up to cut into fingers, then remove the cling film. STEP 10 TO MAKE SUSHI BALLS: Choose your topping.Get a small square of cling film and place a topping, like half a prawn or a small piece of smoked salmon, on it. Use damp hands to roll walnut-sized balls of rice and place on the topping. STEP 11 Make into tight balls. Bring the corners of the cling film together and tighten into balls by twisting it up, then unwrap and serve." },
                 { id: 2, image: "./images/recipes/fettuccine-alfredo.jpg", name: "Fettuccine Alfredo", category: "Dinner", total_time: 45, servings: 6, level: "Fácil", likes: 18, ingredients: "1 lb Fettuccine, 1/2 cup Heavy Cream, 1/2 cup Butter, 1/2 cup Parmesan, 2 tbsp Parsley, Black Pepper", instructions: "Cook pasta according to package instructions in a large pot of boiling water and salt. Add heavy cream and butter to a large skillet over medium heat until the cream bubbles and the butter melts. Whisk in parmesan and add seasoning (salt and black pepper). Let the sauce thicken slightly and then add the pasta and toss until coated in sauce. Garnish with parsley, and it's ready." },
@@ -58,7 +71,13 @@ const app = Vue.createApp({
                 { id: 9, image: "./images/recipes/strawberry-lemonade.jpg", name: "Strawberry Lemonade", category: "Drinks", total_time: 25, servings: 4, level: "Fácil", likes: 18, ingredients: "Juice of 1 Lemon, 1 tblsp Sugar, 8-10 ripe Strawberries, 1 cup Water", instructions: "Throw everything into a blender and mix until fairly smooth. Serve over ice. Glass Serve: Collins Glass" },
                 { id: 10, image: "./images/recipes/strawberry-lemonade.jpg", name: "Strawberry Lemonade", category: "Drinks", total_time: 25, servings: 4, level: "Fácil", likes: 18, ingredients: "Juice of 1 Lemon, 1 tblsp Sugar, 8-10 ripe Strawberries, 1 cup Water", instructions: "Throw everything into a blender and mix until fairly smooth. Serve over ice. Glass Serve: Collins Glass" }
             ],
-            relatedRecipes: []
+            relatedRecipes: [],
+            allRecipes: [],
+            
+
+            ///////////Objects//////////
+            user: {},
+            recipe: {}
         }
     },
     mounted: function () {
@@ -84,12 +103,14 @@ const app = Vue.createApp({
                                 id: element.id,
                                 name: element.name,
                                 image: 'http://prueba01.test/storage/imgs/' + element.image,
-                                // total_time: element.total_time,
-                                // portions: element.portions,
+                                total_time: element.total_time,
+                                portions: element.portions,
                                 level: element.level,
                             }
                         )
                     });
+
+                    this.allRecipes = this.recipes;
                     // this.fetchRecipeDetails();
                 }                
             )
@@ -118,8 +139,8 @@ const app = Vue.createApp({
                                 id: element.id,
                                 name: element.name,
                                 image: 'http://prueba01.test/storage/imgs/' + element.image,
-                                // total_time: element.total_time,
-                                // portions: element.portions,
+                                total_time: element.total_time,
+                                portions: element.portions,
                                 level: element.level,
                             }
                         )
@@ -245,24 +266,9 @@ const app = Vue.createApp({
 
             // }
         },
-        onClickRecipeDetails(index) {
-            // console.log("id:" + index);
-
-            // let item = this.recipes[index-1];
-
-            // //console.log(item);
-
-            // this.recipe.id = index;
-            // this.recipe.image = item.image;
-            // this.recipe.name = item.name;
-            // this.recipe.category = item.category;
-            // this.recipe.total_time = item.time;
-            // this.recipe.level = item.level;
-            // this.recipe.likes = item.likes;
-
-
-
-
+        onClickRecipeDetails(index) {            
+            this.message = '';
+            this.alert = false;
            // Carga de los detalles de la receta con el API
             axios({
                 method: 'get',
@@ -271,10 +277,7 @@ const app = Vue.createApp({
                 .then(
                     (response) => {
                         // console.log(response);
-
                         let item = response.data[0][0];
-                        // let clean1 = item.summary.replace(/(<b>)/gm, "");
-                        // let cleanDescription = clean1.split("</b>").join("");
 
                         this.recipe.id = index;
                         this.recipe.image = 'http://prueba01.test/storage/imgs/' + item.image;
@@ -287,10 +290,8 @@ const app = Vue.createApp({
                         this.recipe.total_time = item.total_time;
                         this.recipe.portions = item.portions;
                         this.recipe.instructions = item.preparation_instructions.split("Step");
-                        // console.log(item);
-                        // console.log(item.preparation_instructions.split("Step"));
-                        //llenar el arreglo de ingredientes
 
+                        //Cargar los ingredientes de la receta
                         let ingredientsList = [];
 
                         let ingredients = response.data[1];
@@ -304,6 +305,7 @@ const app = Vue.createApp({
 
                         this.recipe.ingredients = ingredientsList;
 
+                        //Cargar las instrucciones
 
                         let instructionsList = [];
                         
@@ -317,9 +319,12 @@ const app = Vue.createApp({
 
                         this.recipe.instructions = instructionsList;
 
+
+                        //Cargar las recetas relacionadas
                         this.relatedRecipes = [];
 
-                        let relatedItems = response.data[2];                        
+                        let relatedItems = response.data[2];  
+                        console.log(response.data[2]);
 
                             relatedItems.forEach(element => {
 
@@ -328,136 +333,156 @@ const app = Vue.createApp({
                                         id: element.id,
                                         name: element.name,
                                         image: 'http://prueba01.test/storage/imgs/' + element.image,
-                                        // total_time: element.total_time,
-                                        // portions: element.portions,
+                                        total_time: element.total_time,
+                                        portions: element.portions,
                                         level: element.level,
                                     }
                                 )
-                            });
-                        
-
-                        // item.extendedIngredients.forEach(element => {
-                        //     ingredientsList.push(
-                        //         { ingredient: element.original }
-                        //     )
-                        // });
-
-                        // this.recipe.ingredients = ingredientsList;
-
-                        // console.log(item);
-                        // //llenar el arreglo de instrucciones
-                        // let analyzedInstructions = item.analyzedInstructions[0].steps;
-                        // let instructionsList = [];
-
-                        // analyzedInstructions.forEach(element => {
-                        //     instructionsList.push(
-                        //         { instruction: element.step }
-                        //     )
-                        // });
-
-                        // this.recipe.instructions = instructionsList;
+                            });     
                     }
                 )
                 .catch(
                     error => console.log(error)
                 );
 
-            this.home = false;
-            this.details = true;
-            this.profile = false;
-            this.forms = false;
+            this.changeView(1);
+           
         },
         onClickSaveRecipe(id) {
-            console.log("En el component " + id);
+            this.message = '';
+            this.alert = false;
 
-            // let savedRecipe = this.recipes.filter(function (item) {
-            //     return item.id === id;
-            // })
-            // console.log(savedRecipe);
-            
+            // console.log(this.isObjEmpty(this.user));
 
-            // this.saved.push(this.recipes.filter(function (item) {
-            //     return item.id === id;
-            // }));
-            this.recipes.forEach(element => {
-                
-                if (element.id == id) {
-
-                    let savedRecipe = this.saved.filter(function (item) {
-                        return item.id === id;                       
-                    })
-
-                    if (savedRecipe.length <= 0) {
-                        this.saved.push(
-                            {
-                                id: element.id,
-                                name: element.name,
-                                image: element.image,
-                                level: element.level,
-                                total_time: "20"
-                            }
-                        )
-                        this.message = "Recipe Saved";
-                        this.alert = true;
-                        
-                    } else {
-                        this.message = "The recipe has been already been saved";
-                        this.alert = true;
-                    }
-                }
-            });
+            // verificamos si el usuario esta loggeado
+            if (!this.isObjEmpty(this.user)) {
+                console.log('Userid  ', this.user.id);
+                axios({
+                    method: 'get',
+                    url: 'http://prueba01.test/api/users/saverecipe/' + this.user.id + '/' + id
+                })
+                    .then(
+                        (response) => {
+                            // console.log(response.data);
+                            this.message = response.data.message;
+                            this.alert = true;
+                        }
+                    )
+                    .catch(
+                        error => console.log(error)
+                    );
+            } else {
+                this.message = 'You must Log In first';
+                this.alert = true;
+            }
+           
         },
         onClickLikeRecipe(id) {
+            // axios({
+                
+            //     method: 'get',
+            //     url: 'http://prueba01.test/api/users/getuserid'
+            // })
+            //     .then(
+            //         (response) => {
+            //             console.log(response.data);
 
-            this.recipe.likes++;
-            let item = this.recipes.find(element => element.id == id);
-            item.likes++;
-            // console.log(item.likes);
-            // console.log("Recipe ");
-            // console.log(this.recipe);
-            // console.log("Recipes ");
-            // console.log(this.recipes);
+            //             if (this.token != undefined) {
+            //                 console.log("user is logged in")
+            //             }
+            //         }
+            //     )
+            //     .catch(
+            //         error => console.log(error)
+            // );
+            
+            // console.log(this.isObjEmpty(this.user));
+            if (!this.isObjEmpty(this.user)) {
+
+                console.log('Userid  ', this.user.id);
+                axios({
+                    method: 'get',
+                    url: 'http://prueba01.test/api/users/likes/'+this.user.id+'/' + id
+                })
+                    .then(
+                        (response) => {
+                            console.log(response.data);
+                            if (response.data.message == 200) {
+                                this.message = response.data.message;
+                                this.alert = true;
+                                // this.recipe.likes++;
+                                
+                            } else {
+                                this.message = response.data.message;
+                                this.alert = true;
+                            }
+                            
+                        }
+                    )
+                    .catch(
+                        error => console.log(error)
+                    );
+            } else {
+                this.message = 'You must Log In first';
+                this.alert = true;
+            }
 
             
         },
         onClickGoHome() {
-            this.home = true;
-            this.details = false;
-            this.profile = false;
-            this.forms = false;
+            this.recipes = this.allRecipes;
+            this.changeView(0);
         },
-        onClickGoProfile() {
-            this.home = false;
-            this.details = false;
-            this.profile = true;
-            this.forms = false;
+        onClickGoProfile() {                       
+            
+            axios({
+                method: 'get',
+                url: 'http://prueba01.test/api/users/savedrecipes/' + this.user.id 
+            })
+                .then(
+                    (response) => {
+                        console.log(response.data);                        
+
+                        let items = response.data;
+
+                        this.saved = [];
+
+                        items.forEach(element => {
+
+                            this.saved.push(
+                                {
+                                    id: element.id,
+                                    name: element.name,
+                                    image: 'http://prueba01.test/storage/imgs/' + element.image,
+                                    total_time: element.total_time,
+                                    portions: element.portions,
+                                    level: element.level,
+                                }
+                            )
+                        });
+                    }
+                )
+                .catch(
+                    error => console.log(error)               
+            );
+
+            this.changeView(5);
+            
         },
         onClickGoForgotPassword() {
-            this.home = false;
-            this.details = false;
-            this.profile = false;
-            this.forms = true;
-            this.forgotPassword = true;
-            this.register = false;
-            this.login = false;
+            this.message = '';
+            this.alert = false;
+            this.changeView(4);
         },
         onClickGoLogin() {
-            this.home = false;
-            this.details = false;
-            this.profile = false;
-            this.forms = true;
-            this.forgotPassword = false;
-            this.register = false;
-            this.login = true;
+            this.message = '';
+            this.alert = false;
+            this.changeView(2);
         },
         onClickGoRegister() {
-            this.home = false;
-            this.details = false;
-            this.profile = false;
-            this.forms = true;
-            this.forgotPassword = false;
-            this.register = true;
-            this.login = false;
+            this.message = '';
+            this.alert = false;
+            this.changeView(3);
         },
         doSearch() {
             
@@ -481,8 +506,8 @@ const app = Vue.createApp({
                                     id: element.id,
                                     name: element.name,
                                     image: 'http://prueba01.test/storage/imgs/' + element.image,
-                                    // total_time: element.total_time,
-                                    // portions: element.portions,
+                                    total_time: element.total_time,
+                                    portions: element.portions,
                                     level: element.level,
                                 }
                             )
@@ -505,6 +530,7 @@ const app = Vue.createApp({
                 );
         },
         onClickCloseAlert() {
+            this.message = "";
             this.alert = false;
         },
         onClickSearchFilter(id, label) {
@@ -527,8 +553,8 @@ const app = Vue.createApp({
                                     id: element.id,
                                     name: element.name,
                                     image: 'http://prueba01.test/storage/imgs/' + element.image,
-                                    // total_time: element.total_time,
-                                    // portions: element.portions,
+                                    total_time: element.total_time,
+                                    portions: element.portions,
                                     level: element.level,
                                 }
                             )
@@ -540,7 +566,253 @@ const app = Vue.createApp({
                 );
         },
         doRegister() {
-            console.log(data);
+            // console.log(this.name);
+            // console.log(this.last_name);
+            // console.log(this.username);
+            // console.log(this.email);
+            // console.log(this.password);
+
+            let postData = {
+                name: this.name,
+                last_name: this.last_name,
+                country: 'Costa Rica',
+                email: this.email,
+                password: this.password
+            };
+
+            let config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "*"
+                }
+            };
+
+            axios.post('http://prueba01.test/api/users/register', postData, config)
+                .then(
+                    (response) => {
+                        console.log(response.data);
+
+                        this.token = response.data.access_token;
+                        console.log(this.token);
+
+                        if (this.token == undefined) {                            
+                            this.message = "Failed to Sign Up";
+                            this.alert = true;
+                        } else {
+                            this.user = response.data.data;
+
+                            console.log(this.user);
+
+                            this.guest = false;
+                            this.onClickGoProfile();
+                        }
+                    }
+                )
+                .catch(
+                    error => error => {
+                        console.log(error)
+                        this.message = error.response.data.message;
+                        this.alert = true;
+                    } 
+                );
+
+            // axios({
+            //     method: 'post',
+            //     url: 'http://prueba01.test/api/users/register?name='+this.name+'&last_name='+this.last_name+'&country=Costa Rica&email='+this.email+'&password='+this.password
+            // })
+            //     .then(
+            //         (response) => {
+            //             console.log(response);
+
+            //             this.token = response.data.access_token;
+            //             console.log(this.token);
+
+            //             if (this.token == undefined) {
+            //                 this.message = "Failed to Sign Up";
+            //                 this.alert = true;
+            //             } else {
+            //                 this.onClickGoProfile();
+            //             }
+
+            //         }
+            //     )
+            //     .catch(
+            //         error => console.log(error)
+            //     );
+        },
+        doLogin() {
+            // console.log(this.email);
+            // console.log(this.password);   
+
+            let data = {
+                email: this.email,
+                password: this.password
+            }
+
+            let config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "*"
+                }
+            }
+
+            axios.post('http://prueba01.test/api/users/login', data, config )
+                .then(
+                    (response) => {
+                        console.log(response);
+                        this.token = response.data.accessToken;
+
+                        if (this.token == undefined) {
+                            this.message = "Failed to Log In";
+                            this.alert = true;
+                        } else {
+                        
+                            this.user = response.data.user;
+
+                            console.log(this.user);
+
+                            this.guest = false;
+                            console.log(this.token);
+                            this.onClickGoProfile();
+                        }
+                        
+                    }
+                )
+                .catch(
+                    error => {
+                        console.log(error)
+                        this.message = error.response.data.message;
+                        this.alert = true;                                                       
+                    } 
+                );
+            
+        },
+        onClickLogOut() {
+            
+            // axios({
+            //     method: 'get',
+            //     url: 'http://prueba01.test/api/users/logout'
+            // })
+            //     .then(
+            //         (response) => {
+            //             console.log(response.data);                        
+            //         }
+            //     )
+            //     .catch(
+            //         error => console.log(error)
+            // );
+            console.log(this.token);
+
+            axios.get('http://prueba01.test/api/users/logout', {                
+                headers: {
+                    'Authorization': `Bearer ${this.token}`                    
+                }
+            })
+                .then((res) => {
+                    console.log(res.data);
+                    this.user = {};
+                    this.onClickGoHome();
+                    this.guest = true;  
+                    // console.log(this.user);
+                })
+                .catch((error) => {
+                    console.error(error)
+                })            
+           
+        },
+        recoverPassword() {
+            console.log(this.email);
+
+            if (this.email == null) {
+                this.message = "Email invalid";
+                this.alert = true;
+            } else {
+                axios({
+                    method: 'post',
+                    url: 'http://prueba01.test/api/users/recoverPassword?email='+this.email
+                })
+                    .then(
+                        (response) => {
+                            console.log(response.data);
+
+                            if (response.data.code == 200) {
+                                this.message = "New Password: "+ response.data.password;
+                                this.alert = true;
+                            } else {
+                                this.message = response.data.message;
+                                this.alert = true;
+                            }
+
+                        }
+                    )
+                    .catch(
+                        error => {
+                            console.log(error)
+                            this.message = error.response.data.message;
+                            this.alert = true;
+                        } 
+                    );
+            }
+
+        },
+        isObjEmpty(obj) {
+            return Object.keys(obj).length === 0;
+        },
+        changeView(view) {
+            switch (view) {
+                //Home
+                case 0:
+                    this.home = true;
+                    this.details = false;
+                    this.profile = false;
+                    this.forms = false;
+                    break;
+                //Details
+                case 1:
+                    this.home = false;
+                    this.details = true;
+                    this.profile = false;
+                    this.forms = false;
+                    break;
+                //Log In
+                case 2:
+                    this.home = false;
+                    this.details = false;
+                    this.profile = false;
+                    this.forms = true;
+                    this.forgotPassword = false;
+                    this.register = false;
+                    this.login = true;
+                    break;
+                //Sign Up
+                case 3:
+                    this.home = false;
+                    this.details = false;
+                    this.profile = false;
+                    this.forms = true;
+                    this.forgotPassword = false;
+                    this.register = true;
+                    this.login = false;
+                    break;
+                //Recover Password
+                case 4:
+                    this.home = false;
+                    this.details = false;
+                    this.profile = false;
+                    this.forms = true;
+                    this.forgotPassword = true;
+                    this.register = false;
+                    this.login = false;
+                    break;
+                //Profile
+                case 5:
+                    this.home = false;
+                    this.details = false;
+                    this.profile = true;
+                    this.forms = false;
+                    break;
+
+            }
         }
     }
 })

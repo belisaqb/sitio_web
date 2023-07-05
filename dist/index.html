@@ -46,7 +46,7 @@
         <header>
             <div>
                 <nav-bar v-if="!forms" v-on:go-home="onClickGoHome" v-on:go-login="onClickGoLogin"
-                    v-on:go-register="onClickGoRegister"></nav-bar>
+                    v-on:go-register="onClickGoRegister" v-on:log-out="onClickLogOut" v-on:go-profile="onClickGoProfile" :guest="guest"></nav-bar>
             </div>
 
 
@@ -58,9 +58,10 @@
                             <h1 class="display-6 fw-bold mb-3">The Best <span class="text-yellow">Recipes</span> in one
                                 place</h1>
                             <p class="horizontal-line mt-4 mb-3"></p>
-                            <p class="content-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam
-                                sint dicta possimus vel suscipit exercitationem earum consequuntur reiciendis dolorem?
-                                Molestias adipisci facilis quos iste perspiciatis aliquam itaque magnam qui saepe.</p>
+                            <p class="content-text">Indulge in the symphony of flavors as you explore our extensive recipe database, meticulously crafted by culinary
+                            experts and passionate food enthusiasts. From comforting classics that warm the soul to innovative and adventurous
+                            dishes that push the boundaries of taste, our recipes are designed to inspire and empower you to create culinary
+                            masterpieces in your own kitchen.</p>
                             <div class="d-flex justify-content-center mt-5 pt-4">
                                 <a class="" href="#highlighted">
                                     <i class="arrow-down icon-link fa-solid fa-circle-arrow-down"></i>
@@ -207,7 +208,7 @@
                 <div class="col-lg-9 col-sm-12">
                     <div class="my-5 text-center">
                         <div class="row mx-auto gy-5">
-                            <div v-for="(item, index) in recipes" class="col col-sm-12 col-lg-4 col-md-6 text-start">
+                            <div v-for="(item, index) in recipes" class="col col-sm-12 col-lg-3 col-md-6 text-start">
                                 <recipe-card :index="item.id" :image="item.image" :name="item.name"
                                     :total_time="item.total_time" :level="item.level" :portions="item.servings"
                                     v-on:recipe-details="onClickRecipeDetails"></recipe-card>
@@ -242,10 +243,10 @@
 
                     <div class="row">
                         <div class="my-5">
-                            <div class="row mx-auto gy-5">
-                                <div v-for="(item) in relatedRecipes" class="col-sm-12 col-lg-3 col-md-6">
+                            <div class="row mx-auto ms-3 gap-4 gy-5">
+                                <div v-for="(item) in relatedRecipes" class="col-sm-12 col-lg-2 col-md-6">
                                     <recipe-card :index="item.id" :image="item.image" :name="item.name"
-                                        :time="item.total_time" :level="item.level"
+                                        :portions="item.portions" :total_time="item.total_time" :level="item.level"
                                         v-on:recipe-details="onClickRecipeDetails"></recipe-card>
                                 </div>
                             </div>
@@ -262,12 +263,12 @@
         <!--//////////////////////////////////////////Perfil/////////////////////////////////////////-->
         <div v-if="profile">
             <!--/////////////////////////////////Info////////////////////////////////////-->
-            <profile></profile>
+            <profile :name="user.name" :last_name="user.last_name" :country="user.country" :email="user.email"></profile>
             <!--/////////////////////////////////Info////////////////////////////////////-->
 
             <!--//////////////////////////////////////////Coleccion de Recetas/////////////////////////////////////////-->
             <section class="container">
-                <h2 class="mt-5 text-center fw-bold fst-italic display-5">Tus Recetas Coleccionadas</h2>
+                <h2 class="mt-5 text-center fw-bold fst-italic display-5">Your Saved Recipes</h2>
                 <div class="row">
                     <div class="my-5">
                         <div class="row mx-auto gy-5">
@@ -296,11 +297,90 @@
                 </div>
 
                 <div class="col mb-5">
-                    <login v-if="login" v-on:go-forgot-password="onClickGoForgotPassword"
-                        v-on:go-profile="onClickGoProfile" v-on:go-register="onClickGoRegister"></login>
-                    <register v-if="register" v-on:go-profile="onClickGoProfile" v-on:go-login="onClickGoLogin">
-                    </register>
-                    <forgot-password v-if="forgotPassword" v-on:go-login="onClickGoLogin"></forgot-password>
+                    <!-- <login v-if="login" v-on:go-forgot-password="onClickGoForgotPassword"
+                        v-on:go-profile="onClickGoProfile" v-on:go-register="onClickGoRegister"></login> -->
+                    <!-- <register v-if="register" v-on:go-register="doRegister" v-on:go-profile="onClickGoProfile" v-on:go-login="onClickGoLogin">                        
+                    </register> -->
+
+                    <div class="mt-5" v-if="register" >
+                        <alert-popup v-if="alert" v-on:close-alert="onClickCloseAlert" :message="message"></alert-popup>
+                        <h1 class="fw-bold text-center mt-5">Sign Up</h1>
+                        <p class="text-center content-text">Welcome!</p>
+                    
+                        <form v-on:submit.prevent="doRegister">
+                            <div class="row d-flex justify-content-center gap-3 mx-2">
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="name" class="form-label fw-bold">Name</label>
+                                    <input v-model="name" class="form-bg form-control" type="text" placeholder="Name">
+                                </div>
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="last_name" class="form-label fw-bold">Last Name</label>
+                                    <input v-model="last_name" class="form-bg form-control" type="text" placeholder="Last Name">
+                                </div>
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="email" class="form-label fw-bold">Email</label>
+                                    <input v-model="email" class="form-bg form-control" type="text" placeholder="Email">
+                                </div>
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="usuario" class="form-label fw-bold">User</label>
+                                    <input v-model="username" class="form-bg form-control" type="text" placeholder="User">
+                                </div>
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="contraseña" class="form-label fw-bold">Password <span></span></label>
+                                    <input v-model="password" class="form-bg form-control" type="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <input class="btn-dark text-dark mx-auto fw-bold d-flex justify-content-center mt-4 mb-3" type="submit"
+                                value="Registrarse">
+                            <a class="text-center text-link-muted small" v-on:click="onClickGoLogin" href="#">A member already? Log In</a>
+                        </form>
+                    </div>
+
+                    <div class="mt-5" v-if="login">
+                        <alert-popup v-if="alert" v-on:close-alert="onClickCloseAlert" :message="message"></alert-popup>
+                        <h1 class="fw-bold text-center mt-5">Inicia Sesión</h1>
+                        <p class="text-center content-text">Te damos la bienvenida</p>
+                    
+                        <form v-on:submit.prevent="doLogin">
+                            <div class="row d-flex justify-content-center gap-3 mx-2">
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="email" class="form-label fw-bold">Email</label>
+                                    <input v-model="email" id="email" class="form-bg form-control" type="text" name="email" placeholder="Email">
+                                </div>
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="password" class="form-label fw-bold">Password <span></span></label>
+                                    <input v-model="password" id="password" class="form-bg form-control" type="password" name="password"
+                                        placeholder="Password">
+                                    <a class="text-link-muted small mt-2" v-on:click="onClickGoForgotPassword" href="#">Forgot your password?</a>
+                                </div>
+                            </div>
+                            <input class="btn-dark text-dark mx-auto fw-bold d-flex justify-content-center mt-4 mb-3" type="submit"
+                                value="Log In">
+                            <a class="text-center text-link-muted small" v-on:click="onClickGoRegister" href="#">Not a member?
+                                Sign Up</a>
+                        </form>
+                    </div>
+
+                    <!-- <forgot-password v-if="forgotPassword" v-on:go-login="onClickGoLogin"></forgot-password> -->
+
+                    <div v-if="forgotPassword" class="mt-5">
+                        <alert-popup v-if="alert" v-on:close-alert="onClickCloseAlert" :message="message"></alert-popup>
+                        <h1 class="fw-bold text-center mt-5">Password Change</h1>
+                        <p class="text-center content-text">Write down your email. We will send the new password</p>
+                    
+                        <form v-on:submit.prevent="recoverPassword" >
+                            <div class="row d-flex justify-content-center gap-3 mx-2 mt-4">
+                                <div class="mb-3 col-lg-9 col-md-9 col-sm-12">
+                                    <label for="email" class="form-label fw-bold">Email</label>
+                                    <input v-model="email" id="email" class="form-bg form-control" type="text" name="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <input class="btn-dark text-dark mx-auto fw-bold d-flex justify-content-center mt-4 mb-3" type="submit"
+                                value="Enviar">
+                            <a class="text-center text-link-muted small" v-on:click="onClickGoLogin" href="#">Did you remember your password?
+                                Log In</a>
+                        </form>
+                    </div>
                 </div>
 
 

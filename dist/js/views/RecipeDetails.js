@@ -90,7 +90,7 @@ app.component('recipe-details', {
                 <div class="col-lg-6 d-flex mx-auto px-4 my-4">
                     <div class="align-self-center">
                         <h2 class="display-6 fw-bold mb-3">{{ name }}</h2>
-                        <h4 class="fw-bold text-yellow fst-italic mb-3">{{ highlight }}</h4>
+                        <!--<h4 class="fw-bold text-yellow fst-italic mb-3">{{ highlight }}</h4>-->
                         <p class="horizontal-line mt-4 mb-3"></p>
                         <p class="content-text">{{ description }}</p>
                         <div class="row d-flex py-3">
