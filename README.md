@@ -1,17 +1,15 @@
 
-    💻 Project Description: Recipe Platform Development
+   # 💻 Project Description: Recipe Platform Development
 
-    I'm sharing a project, from the design in Figma to implementing functionality.
+A project I developed from the design in Figma to implementing functionality.
 
-    🔧 Technologies Used
+   ## 🔧 Technologies Used
 
-    Using HTML, CSS, Bootstrap, SCSS, and Vue.js, I built a recipe platform with a user-friendly interface.
+Using HTML, CSS, Bootstrap, SCSS, and Vue.js, I built a recipe platform with a user-friendly interface.
 
-    📊 API Integration
+   ## 📊 API Integration
 
-    I integrated external APIs with Vue.js and Axios to provide a diverse range of recipes for users to explore.
+ I integrated external APIs with Vue.js and Axios to provide a diverse range of recipes for users to explore.
 
-    Keywords: axios · CSS · HTML · HTML5 · Git · GitHub · Vue.js · Bootstrap
-
-    Feel free to check the preview video
-    https://youtu.be/WCMlOYzkHPE
+   ## Demo
+ https://youtu.be/WCMlOYzkHPE
